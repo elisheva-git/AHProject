@@ -4,7 +4,12 @@ using System.Text;
 
 namespace DTO
 {
-    class ProfessionalHolidaysDTO
+    public class ProfessionalHolidaysDTO
     {
+        public int IdProfessional { get; set; }
+        public int IdHoliday { get; set; }
+
+        //public virtual Holiday IdHolidayNavigation { get; set; }
+        //public virtual Professional IdProfessionalNavigation { get; set; }
     }
 }

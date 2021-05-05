@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AHProject.DAL.Models
 {
-    public partial class SettlementHoliday1
+    public partial class SettlementHolidays
     {
         public int IdHoliday { get; set; }
         public int IdSettlement { get; set; }

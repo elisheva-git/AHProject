@@ -30,7 +30,7 @@ namespace AHProject.DAL.Models
         public virtual DbSet<SchedulingHoliday> SchedulingHolidays { get; set; }
         public virtual DbSet<Settlement> Settlements { get; set; }
         public virtual DbSet<SettlementHoliday> SettlementHolidays { get; set; }
-        public virtual DbSet<SettlementHoliday1> SettlementHolidays1 { get; set; }
+        public virtual DbSet<SettlementHolidays> SettlementHolidays1 { get; set; }
         public virtual DbSet<Volunteer> Volunteers { get; set; }
         public virtual DbSet<VolunteersSettlementHoliday> VolunteersSettlementHolidays { get; set; }
 
@@ -293,7 +293,7 @@ namespace AHProject.DAL.Models
                     .HasConstraintName("FK__Settlemen__IdSet__398D8EEE");
             });
 
-            modelBuilder.Entity<SettlementHoliday1>(entity =>
+            modelBuilder.Entity<SettlementHolidays>(entity =>
             {
                 entity.HasKey(e => new { e.IdHoliday, e.IdSettlement })
                     .HasName("PK__Settleme__013BD0305DB7AC0F");
