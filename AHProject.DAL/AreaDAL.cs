@@ -4,7 +4,8 @@ using System.Text;
 
 namespace AHProject.DAL
 {
-    class AreaDAL
+    public class AreaDAL 
     {
+        
     }
 }
