@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AHProject.BL
 {
-    class VolunteersSettlementHolidayBL
+    public class VolunteersSettlementHolidayBL
     {
     }
 }
