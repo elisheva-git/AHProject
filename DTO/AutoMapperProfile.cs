@@ -12,7 +12,6 @@ namespace DTO
             CreateMap<AreaDTO,Area>();
             CreateMap<Area,AreaDTO > ();
             CreateMap<ContactPersonDTO, ContactPerson>();
-
             CreateMap<ContactPerson, ContactPersonDTO>();
 
 
