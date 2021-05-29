@@ -14,6 +14,7 @@ namespace DTO
 
         public int IdArea { get; set; }
         public string AreaName { get; set; }
+        int i;
 
         //public virtual ICollection<Settlement> Settlements { get; set; }
         //public virtual ICollection<Volunteer> Volunteers { get; set; }
