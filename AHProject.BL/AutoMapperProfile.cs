@@ -1,9 +1,10 @@
 ﻿using AHProject.DAL.Models;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DTO
+namespace AHProject.BL
 {
     public class AutoMapperProfile : AutoMapper.Profile
     {
@@ -13,7 +14,8 @@ namespace DTO
             CreateMap<Area,AreaDTO > ();
             CreateMap<ContactPersonDTO, ContactPerson>();
             CreateMap<ContactPerson, ContactPersonDTO>();
-
+            CreateMap<Volunteer, VolunteersDTO>();
+            CreateMap<VolunteersDTO, Volunteer>();
 
         }
     }

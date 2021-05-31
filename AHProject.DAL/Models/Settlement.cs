@@ -10,7 +10,9 @@ namespace AHProject.DAL.Models
         public Settlement()
         {
             ContactPeople = new HashSet<ContactPerson>();
-            SettlementHoliday1s = new HashSet<SettlementHolidays>();
+            OptionalSettlementToHolidays = new HashSet<OptionalSettlementToHoliday>();
+            ProfessionalToSchedulingHolidays = new HashSet<ProfessionalToSchedulingHoliday>();
+            SettlementHoliday1s = new HashSet<SettlementHoliday1>();
             SettlementHolidays = new HashSet<SettlementHoliday>();
             VolunteersSettlementHolidays = new HashSet<VolunteersSettlementHoliday>();
         }
@@ -23,7 +25,9 @@ namespace AHProject.DAL.Models
         public virtual Area IdAreaNavigation { get; set; }
         public virtual ContactPerson IdContactPerNavigation { get; set; }
         public virtual ICollection<ContactPerson> ContactPeople { get; set; }
-        public virtual ICollection<SettlementHolidays> SettlementHoliday1s { get; set; }
+        public virtual ICollection<OptionalSettlementToHoliday> OptionalSettlementToHolidays { get; set; }
+        public virtual ICollection<ProfessionalToSchedulingHoliday> ProfessionalToSchedulingHolidays { get; set; }
+        public virtual ICollection<SettlementHoliday1> SettlementHoliday1s { get; set; }
         public virtual ICollection<SettlementHoliday> SettlementHolidays { get; set; }
         public virtual ICollection<VolunteersSettlementHoliday> VolunteersSettlementHolidays { get; set; }
     }

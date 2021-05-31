@@ -11,6 +11,7 @@ namespace AHProject.DAL.Models
         {
             HolidayVolunteers = new HashSet<HolidayVolunteer>();
             OptionalVolunteerToHolidays = new HashSet<OptionalVolunteerToHoliday>();
+            ProfessionalToVolunteers = new HashSet<ProfessionalToVolunteer>();
             VolunteersSettlementHolidays = new HashSet<VolunteersSettlementHoliday>();
         }
 
@@ -26,6 +27,7 @@ namespace AHProject.DAL.Models
         public virtual Area IdAreaNavigation { get; set; }
         public virtual ICollection<HolidayVolunteer> HolidayVolunteers { get; set; }
         public virtual ICollection<OptionalVolunteerToHoliday> OptionalVolunteerToHolidays { get; set; }
+        public virtual ICollection<ProfessionalToVolunteer> ProfessionalToVolunteers { get; set; }
         public virtual ICollection<VolunteersSettlementHoliday> VolunteersSettlementHolidays { get; set; }
     }
 }

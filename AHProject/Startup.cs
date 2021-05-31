@@ -1,3 +1,5 @@
+using AHProject.BL;
+using AHProject.DAL;
 using AHProject.DAL.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +33,10 @@ namespace AHProject
 
             services.AddDbContext<AHDBContext>(options => options.UseSqlServer(
            Configuration.GetSection("ConnectionString")["AHConnection"]));
+
+            services.AddScoped<IVolunteersDAL, VolunteersDAL>();
+            services.AddScoped<IVolunteersBL, VolunteersBL>();
+            services.AddAutoMapper(typeof(AutoMapperProfile));
 
             //services.AddScoped<IRatingBL, RatingBL>();
         }
