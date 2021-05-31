@@ -42,7 +42,7 @@ namespace AHProject
             services.AddScoped<IExperienceOptionalDAL, ExperienceOptionalDAL>();
             services.AddScoped<IHolidaysDAL, HolidaysDAL>();
             services.AddScoped<ISchedulingHolidayDAL, SchedulingHolidayDAL>();
-            services.AddScoped<IholidayVolunteerDAL, holidayVolunteerDAL>();
+            services.AddScoped<IHolidayVolunteerDAL, HolidayVolunteerDAL>();
             services.AddScoped<ISettlementHolidayDAL, SettlementHolidayDAL>();
             services.AddScoped<IVolunteersSettlementHolidayDAL, VolunteersSettlementHolidayDAL>();
             services.AddScoped<IContactPersonDAL, ContactPersonDAL>();
@@ -62,7 +62,7 @@ namespace AHProject
             services.AddScoped<IExperienceOptionalBL, ExperienceOptionalBL>();
             services.AddScoped<IHolidaysBL, HolidaysBL>();
             services.AddScoped<ISchedulingHolidayBL, SchedulingHolidayBL>();
-            services.AddScoped<IholidayVolunteerBL, holidayVolunteerBL>();
+            services.AddScoped<IHolidayVolunteerBL, HolidayVolunteerBL>();
             services.AddScoped<ISettlementHolidayBL, SettlementHolidayBL>();
             services.AddScoped<IVolunteersSettlementHolidayBL, VolunteersSettlementHolidayBL>();
             services.AddScoped<IContactPersonBL, ContactPersonBL>();

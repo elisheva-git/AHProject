@@ -1,6 +1,6 @@
 ﻿namespace AHProject.DAL
 {
-    public class IholidayVolunteerDAL
+    public class IHolidayVolunteerDAL
     {
     }
 }

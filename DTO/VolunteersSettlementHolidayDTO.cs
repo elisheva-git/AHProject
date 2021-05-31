@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DTO
 {
-    class VolunteersSettlementHolidayDTO
+    public class VolunteersSettlementHolidayDTO
     {
         public int IdSettlement { get; set; }
         public int IdSchedulingHoliday { get; set; }

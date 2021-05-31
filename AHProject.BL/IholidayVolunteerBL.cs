@@ -1,6 +1,6 @@
 ﻿namespace AHProject.BL
 {
-    public interface IholidayVolunteerBL
+    public interface IHolidayVolunteerBL
     {
     }
 }
