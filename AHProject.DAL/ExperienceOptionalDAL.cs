@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AHProject.DAL
 {
-    public class ExperienceOptionalDAL
+    public class ExperienceOptionalDAL: IExperienceOptionalDAL
     {
     }
 }

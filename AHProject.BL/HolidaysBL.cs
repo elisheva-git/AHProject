@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AHProject.BL
 {
-    public class HolidaysBL
+    public class HolidaysBL: IHolidaysBL
     {
     }
 }

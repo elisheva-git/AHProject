@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AHProject.DAL
 {
-    public class ProfessionalDAL
+    public class ProfessionalDAL: IProfessionalDAL
     {
     }
 }

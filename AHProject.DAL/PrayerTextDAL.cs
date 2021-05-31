@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AHProject.DAL
 {
-    public class PrayerTextDAL
+    public class PrayerTextDAL: IPrayerTextDAL
     {
     }
 }

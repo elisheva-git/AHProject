@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AHProject.DAL
 {
-    public class AreaDAL 
+    public class AreaDAL : IAreaDAL
     {
         AHDBContext _context;
         public AreaDAL(AHDBContext context)

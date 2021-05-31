@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AHProject.DAL
 {
-    public class ContactPersonDAL
+    public class ContactPersonDAL: IContactPersonDAL
     {
     }
 }
