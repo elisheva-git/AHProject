@@ -17,7 +17,8 @@ namespace AHProject.DAL
         {
             try
             {
-                Volunteer volunteerExist= _context.Volunteers.Find(volunteer.IdentityNumber);
+                Volunteer volunteerExist = null;
+               volunteerExist= _context.Volunteers.Find(volunteer.IdentityNumber);
                 if (volunteerExist != null)
                 {
                     return false;

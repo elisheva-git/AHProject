@@ -1,6 +1,7 @@
 ﻿using AHProject.DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AHProject.DAL
@@ -12,9 +13,23 @@ namespace AHProject.DAL
         {
             this._context = context;
         }
-        public void AddArea()
+        public bool AddArea(Area area)
         {
-
+            try
+            {
+                _context.Areas.Add(area);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+        public List<Area> GetAreas()
+        {
+            return _context.Areas.ToList();
         }
     }
 }

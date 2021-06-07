@@ -13,14 +13,14 @@ namespace DTO
         //    VolunteersSettlementHolidays = new HashSet<VolunteersSettlementHoliday>();
         //}
 
-        public int IdVolunteer { get; set; }
+        //public int IdVolunteer { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string IdentityNumber { get; set; }
         public string Phone { get; set; }
         public string Gmail { get; set; }
         public int IdArea { get; set; }
-        public bool IsActive { get; set; }
+        //public bool IsActive { get; set; }
 
         //public virtual Area IdAreaNavigation { get; set; }
         //public virtual ICollection<HolidayVolunteer> HolidayVolunteers { get; set; }
