@@ -21,8 +21,7 @@ namespace AHProject.BL
         {
             try
             {
-                _IVolunteersDAL.AddVolunteer(_mapper.Map<VolunteersDTO, Volunteer>(volunteer));
-                return true;
+                return _IVolunteersDAL.AddVolunteer(_mapper.Map<VolunteersDTO, Volunteer>(volunteer));
             }
             catch (Exception e)
             {

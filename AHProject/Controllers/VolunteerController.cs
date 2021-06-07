@@ -22,15 +22,14 @@ namespace AHProject.Controllers
         {
             try
             {
-                this._volunteersBL.AddVolunteer(volunteer);
-                return Ok(true);
+                bool res= this._volunteersBL.AddVolunteer(volunteer);
+                return Ok(res);
             }
             catch (Exception)
             {
-
+                return false;
                 throw;
             }
-
         }
 
         [HttpGet]

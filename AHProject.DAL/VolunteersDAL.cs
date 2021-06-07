@@ -13,11 +13,16 @@ namespace AHProject.DAL
             this._context = context;
         }
       
-        public bool AddVolunteer(Volunteer v)
+        public bool AddVolunteer(Volunteer volunteer)
         {
             try
             {
-                _context.Volunteers.Add(v);
+                Volunteer volunteerExist= _context.Volunteers.Find(volunteer.IdentityNumber);
+                if (volunteerExist != null)
+                {
+                    return false;
+                }
+                _context.Volunteers.Add(volunteer);
                 _context.SaveChanges();
                 return true;
             }
