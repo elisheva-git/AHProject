@@ -1,6 +1,12 @@
-﻿namespace AHProject.DAL
+﻿using AHProject.DAL.Models;
+using System.Collections.Generic;
+
+namespace AHProject.DAL
 {
     public interface IHolidaysDAL
     {
+        public List<Holiday> GetHolidaysDAL();
+        public Holiday GetHolidayByIdDAL(int id);
+        public bool DeleteHolidayDAL(int id);
     }
 }
