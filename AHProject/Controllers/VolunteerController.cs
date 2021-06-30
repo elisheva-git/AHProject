@@ -25,9 +25,9 @@ namespace AHProject.Controllers
                 bool res= this._volunteersBL.AddVolunteer(volunteer);
                 return Ok(res);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return false;
+                return BadRequest();
                 throw;
             }
         }

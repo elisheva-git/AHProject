@@ -1,6 +1,7 @@
 ﻿using AHProject.DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AHProject.DAL
@@ -18,7 +19,7 @@ namespace AHProject.DAL
             try
             {
                 Volunteer volunteerExist = null;
-               volunteerExist= _context.Volunteers.Find(volunteer.IdentityNumber);
+               volunteerExist= _context.Volunteers.FirstOrDefault(v=>v.IdentityNumber==volunteer.IdentityNumber);
                 if (volunteerExist != null)
                 {
                     return false;

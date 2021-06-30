@@ -30,5 +30,10 @@ namespace AHProject.BL
                 throw e;
             }
         }
+        public List<SettlementDTO> GetSettlements()
+        {
+            List<Settlement> settlements = _ISettlementDAL.GetSettlements();
+            return _mapper.Map<List<Settlement>, List<SettlementDTO>>(settlements);
+        }
     }
 }

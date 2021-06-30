@@ -1,6 +1,7 @@
 ﻿using AHProject.DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AHProject.DAL
@@ -11,6 +12,11 @@ namespace AHProject.DAL
         public SettlementDAL(AHDBContext context)
         {
             this._context = context;
+        }
+
+        public List<Settlement> GetSettlements()
+        {
+            return _context.Settlements.ToList();
         }
 
         public bool AddSettlement(Settlement settlement)

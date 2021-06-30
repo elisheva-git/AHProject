@@ -32,5 +32,10 @@ namespace AHProject.Controllers
                 throw e;
             }
         }
+        [HttpGet]
+        public ActionResult<List<SettlementBL>> GetSettlements()
+        {
+            return Ok(_ISettlementBL.GetSettlements());
+        }
     }
 }

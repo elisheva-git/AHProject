@@ -20,7 +20,7 @@ namespace DTO
         public string Phone { get; set; }
         public string Gmail { get; set; }
         public int IdArea { get; set; }
-        //public bool IsActive { get; set; }
+        public bool IsActive { get; set; }
 
         //public virtual Area IdAreaNavigation { get; set; }
         //public virtual ICollection<HolidayVolunteer> HolidayVolunteers { get; set; }

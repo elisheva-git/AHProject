@@ -20,6 +20,5 @@ namespace DTO
 
         //public virtual Settlement IdSettlementNavigation { get; set; }
         //public virtual ICollection<Settlement> Settlements { get; set; }
-
     }
 }
