@@ -37,5 +37,16 @@ namespace AHProject.Controllers
         {
             return Ok(_ISettlementBL.GetSettlements());
         }
+        [HttpDelete("{idSettlement}")]
+        public ActionResult<bool> DeleteSettlement(int idSettlement)
+        {
+            return Ok(_ISettlementBL.DeleteSettlement(idSettlement));
+        }
+        [HttpGet("{id}")]
+        public ActionResult<SettlementDTO> GetSettlementById(int id)
+        {
+            return Ok(_ISettlementBL.GetSettlementById(id));
+        }
+
     }
 }

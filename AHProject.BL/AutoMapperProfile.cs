@@ -18,7 +18,7 @@ namespace AHProject.BL
 
             //CreateMap <Settlement, SettlementDTO> ().ForMember(src=>src.ContactPer.IdContactPerson,dest=>dest.MapFrom(d=>d.IdContactPer));
             //CreateMap<Settlement, SettlementDTO>().ForMember(src => src.ContactPer, dest => dest.MapFrom(d => d.IdContactPerNavigation));
-
+            CreateMap<Settlement, SettlementDTO>();
             CreateMap<SettlementDTO, Settlement > ();
             CreateMap <Volunteer, VolunteersDTO> ();
             CreateMap <VolunteersDTO, Volunteer> ();

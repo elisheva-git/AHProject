@@ -35,5 +35,16 @@ namespace AHProject.BL
             List<Settlement> settlements = _ISettlementDAL.GetSettlements();
             return _mapper.Map<List<Settlement>, List<SettlementDTO>>(settlements);
         }
+        public bool DeleteSettlement(int idSettlement)
+        {
+            return _ISettlementDAL.DeleteSettlement(idSettlement);
+        }
+        public SettlementDTO GetSettlementById(int id)
+        {
+            Settlement settlement = _ISettlementDAL.GetSettlementById(id);
+            return _mapper.Map<Settlement, SettlementDTO>(settlement);
+        }
+
+
     }
 }

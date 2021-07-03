@@ -29,7 +29,8 @@ namespace AHProject.Controllers
         {
             return Ok(_IHolidaysBL.GetHolidayByIdBL(id));
         }
-        [HttpDelete]
+        
+        [HttpDelete("{id}")]
         public ActionResult< bool> DeleteHoliday(int id)
         {
             return _IHolidaysBL.DeleteHolidayBL(id);

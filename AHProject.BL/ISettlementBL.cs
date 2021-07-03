@@ -7,5 +7,8 @@ namespace AHProject.BL
     {
         public bool AddSettlement(SettlementDTO settlement);
         public List<SettlementDTO> GetSettlements();
+        public bool DeleteSettlement(int idSettlement);
+        public SettlementDTO GetSettlementById(int id);
+
     }
 }

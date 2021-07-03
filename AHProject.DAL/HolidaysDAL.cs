@@ -44,7 +44,7 @@ namespace AHProject.DAL
                 _context.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
                 throw;
