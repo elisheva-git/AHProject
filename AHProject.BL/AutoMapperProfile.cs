@@ -16,8 +16,8 @@ namespace AHProject.BL
             CreateMap<PrayerText, PrayerTextDTO>();
             CreateMap <PrayerTextDTO, PrayerText> ();
 
-            //CreateMap <Settlement, SettlementDTO> ().ForMember(src=>src.ContactPer.IdContactPerson,dest=>dest.MapFrom(d=>d.IdContactPer));
-            //CreateMap<Settlement, SettlementDTO>().ForMember(src => src.ContactPer, dest => dest.MapFrom(d => d.IdContactPerNavigation));
+            CreateMap<Settlement, SettlementDTO>().ForMember(src => src.ContactPer, dest => dest.MapFrom<ContactPerson>(d => d.IdContactPerNavigation));
+            CreateMap<SettlementDTO, Settlement>().ForMember(src => src.IdContactPerNavigation, dest => dest.MapFrom(d => d.ContactPer));
             CreateMap<Settlement, SettlementDTO>();
             CreateMap<SettlementDTO, Settlement > ();
             CreateMap <Volunteer, VolunteersDTO> ();
