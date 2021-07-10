@@ -12,7 +12,7 @@ namespace DTO
         //}
 
         public int IdContactPerson { get; set; }
-        public int IdSettlement { get; set; }
+        //public int IdSettlement { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Phone { get; set; }

@@ -33,5 +33,45 @@ namespace AHProject.DAL
                 throw e;
             }
         }
+        public bool Updateolunteer(Volunteer volunteer)
+        {
+            try
+            {
+                //Volunteer volunteerToUpdate = _context.Volunteers.SingleOrDefault(v => v.IdVolunteer == id);
+                //_context.Volunteers.Update(volunteerToUpdate);
+                _context.Volunteers.Update(volunteer);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public List<Volunteer> GetVolunteers()
+        {
+            return _context.Volunteers.ToList();
+        }
+        public Volunteer GetVolunteerById(int id)
+        {
+            
+            Volunteer volunteer = _context.Volunteers.FirstOrDefault(v=>v.IdVolunteer==id);
+            return volunteer;
+        }
+        public bool ChangeStatus(Volunteer volunteerToChange)
+        {
+            try
+            {
+                Volunteer volunteer = _context.Volunteers.FirstOrDefault(v => v.IdVolunteer == volunteerToChange.IdVolunteer);
+                volunteer.IsActive = !volunteer.IsActive;
+                _context.Update(volunteer);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

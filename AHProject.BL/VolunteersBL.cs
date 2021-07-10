@@ -31,5 +31,40 @@ namespace AHProject.BL
                 throw e;
             }
         }
+        public List<VolunteersDTO> GetVolunteers()
+        {
+            List<Volunteer> volunteers = _IVolunteersDAL.GetVolunteers();
+            return _mapper.Map<List<Volunteer>, List<VolunteersDTO>>(volunteers);
+        }
+        public VolunteersDTO GetVolunteerById(int id)
+        {
+            Volunteer volunteer = _IVolunteersDAL.GetVolunteerById(id);
+            return _mapper.Map<Volunteer, VolunteersDTO>(volunteer);
+        }
+        public bool Updateolunteer(VolunteersDTO volunteer)
+        {
+            try
+            {
+                Volunteer volunteerToUpdate = _mapper.Map<VolunteersDTO, Volunteer>(volunteer);
+                return _IVolunteersDAL.Updateolunteer(volunteerToUpdate);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public bool ChangeStatus(VolunteersDTO volunteerToChange)
+        {
+            try
+            {
+                Volunteer volunteer= _mapper.Map<VolunteersDTO, Volunteer>(volunteerToChange);
+                return _IVolunteersDAL.ChangeStatus(volunteer);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

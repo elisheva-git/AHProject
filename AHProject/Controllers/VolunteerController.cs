@@ -33,10 +33,55 @@ namespace AHProject.Controllers
         }
 
         [HttpGet]
-        public ActionResult<bool> GetVolunteers()
+        public ActionResult<List<VolunteersDTO>> GetVolunteers()
         {
-            return Ok(true);
-           // return BadRequest(); 
+            try
+            {
+                return Ok(_volunteersBL.GetVolunteers());
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+                throw;
+            }
+            // return BadRequest(); 
+        }
+        [HttpGet("{id}")]
+        public ActionResult<VolunteersDTO> GetVolunteerById(int id)
+        {
+            try
+            {
+                return Ok(_volunteersBL.GetVolunteerById(id));
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+        [HttpPut]
+        public ActionResult<bool> UpdateVolunteer([FromBody] VolunteersDTO volunteerToUpdate)
+        {
+            try
+            {
+                return Ok( _volunteersBL.Updateolunteer(volunteerToUpdate));
+            }
+            catch (Exception)
+            {
+                return BadRequest(false);
+            }
+        }
+        [HttpPut("[action]")]
+        public ActionResult<bool> ChangeStatus([FromBody] VolunteersDTO volunteerToChange)
+        {
+            try
+            {
+                return Ok(_volunteersBL.ChangeStatus(volunteerToChange));
+            }
+            catch (Exception)
+            {
+                return BadRequest(false);
+                throw;
+            }
         }
 
 

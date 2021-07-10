@@ -13,7 +13,7 @@ namespace DTO
         //    VolunteersSettlementHolidays = new HashSet<VolunteersSettlementHoliday>();
         //}
 
-        //public int IdVolunteer { get; set; }
+        public int IdVolunteer { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string IdentityNumber { get; set; }
