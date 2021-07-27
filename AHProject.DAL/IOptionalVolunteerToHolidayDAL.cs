@@ -2,5 +2,6 @@
 {
     public interface IOptionalVolunteerToHolidayDAL
     {
+        public void addVolunteers(int idSchedulingHoliday);
     }
 }

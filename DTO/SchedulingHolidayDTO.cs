@@ -13,9 +13,8 @@ namespace DTO
         //    SettlementHolidays = new HashSet<SettlementHoliday>();
         //    VolunteersSettlementHolidays = new HashSet<VolunteersSettlementHoliday>();
         //}
-
-        public int IdSchedulingHoliday { get; set; }
         public int IdHoliday { get; set; }
+        public int IdSchedulingHoliday { get; set; }
         public int YearHoliday { get; set; }
 
         //public virtual Holiday IdHolidayNavigation { get; set; }
