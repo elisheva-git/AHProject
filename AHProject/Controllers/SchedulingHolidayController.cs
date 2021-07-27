@@ -33,6 +33,19 @@ namespace AHProject.Controllers
                 throw;
             }
         }
+        [HttpGet]
+        public ActionResult<List<SchedulingHolidayDTO>> GetSchedulingHoliday()
+        {
+            try
+            {
+                return Ok(_ISchedulingHolidayBL.GetSchedulingHolidays());
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+        }
 
     }
 }

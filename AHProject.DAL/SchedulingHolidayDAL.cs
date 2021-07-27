@@ -19,7 +19,7 @@ namespace AHProject.DAL
         {
             try
             {
-                if (_context.SchedulingHolidays.FirstOrDefault(s=>s.IdHoliday==schedulingHoliday.IdHoliday&&s.YearHoliday==schedulingHoliday.YearHoliday)==null)
+                if (_context.SchedulingHolidays.FirstOrDefault(s=>s.YearHoliday==schedulingHoliday.YearHoliday&&s.IdHoliday==schedulingHoliday.IdHoliday)==default) 
                 {
                     _context.SchedulingHolidays.Add(schedulingHoliday);
                     _context.SaveChanges();
@@ -31,6 +31,18 @@ namespace AHProject.DAL
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+        public List<SchedulingHoliday> GetSchedulingHolidays()
+        {
+            try
+            {
+                return _context.SchedulingHolidays.ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 

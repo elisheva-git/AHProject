@@ -30,5 +30,10 @@ namespace AHProject.BL
                 throw e;
             }
         }
+        public List<SchedulingHolidayDTO> GetSchedulingHolidays()
+        {
+            List<SchedulingHoliday> schedulingHolidays = _ISchedulingHolidayDAL.GetSchedulingHolidays();
+            return _mapper.Map<List<SchedulingHoliday>, List<SchedulingHolidayDTO>>(schedulingHolidays);
+        }
     }
 }

@@ -33,7 +33,7 @@ namespace AHProject.Controllers
             }
         }
         [HttpGet]
-        public ActionResult<List<SettlementBL>> GetSettlements()
+        public ActionResult<List<SettlementDTO>> GetSettlements()
         {
             return Ok(_ISettlementBL.GetSettlements());
         }
