@@ -10,10 +10,12 @@ namespace AHProject.DAL
     {
         AHDBContext _context;
         IOptionalVolunteerToHolidayDAL _OptionalVolunteerToHolidayDAL;
-        public SchedulingHolidayDAL(AHDBContext context, IOptionalVolunteerToHolidayDAL OptionalVolunteerToHolidayDAL)
+        IOptionalSettlementToHolidayDAL _OptionalSettlementToHolidayDAL;
+        public SchedulingHolidayDAL(AHDBContext context, IOptionalVolunteerToHolidayDAL OptionalVolunteerToHolidayDAL,IOptionalSettlementToHolidayDAL OptionalSettlementToHolidayDAL)
         {
             this._context = context;
             _OptionalVolunteerToHolidayDAL = OptionalVolunteerToHolidayDAL;
+            _OptionalSettlementToHolidayDAL = OptionalSettlementToHolidayDAL;
         }
         public bool AddSchedulingHoliday(SchedulingHoliday schedulingHoliday)
         {
@@ -24,6 +26,7 @@ namespace AHProject.DAL
                     _context.SchedulingHolidays.Add(schedulingHoliday);
                     _context.SaveChanges();
                     _OptionalVolunteerToHolidayDAL.addVolunteers(schedulingHoliday.IdSchedulingHoliday);
+                    _OptionalSettlementToHolidayDAL.addSettlements(schedulingHoliday.IdSchedulingHoliday);
                     return true;
                 }
                 return false;
