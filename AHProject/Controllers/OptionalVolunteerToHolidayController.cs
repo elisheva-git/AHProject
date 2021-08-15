@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AHProject.BL;
+using DTO;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,5 +13,25 @@ namespace AHProject.Controllers
     [ApiController]
     public class OptionalVolunteerToHolidayController : ControllerBase
     {
+        IOptionalVolunteerToHolidayBL _iOptionalVolunteerToHolidayBL;
+        public OptionalVolunteerToHolidayController(IOptionalVolunteerToHolidayBL iOptionalVolunteerToHolidayBL)
+        {
+            this._iOptionalVolunteerToHolidayBL = iOptionalVolunteerToHolidayBL;
+        }
+        [HttpGet("{idSchedulingHoliday}")]
+        public ActionResult<List<OptionalVolunteerToHolidayDTO>> getOptionalVolunteerByHoliday(int idSchedulingHoliday)
+        {
+            try
+            {
+                return Ok(_iOptionalVolunteerToHolidayBL.getOptionalVolunteerByHoliday(idSchedulingHoliday));
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+                throw;
+            }
+        }
+
+
     }
 }

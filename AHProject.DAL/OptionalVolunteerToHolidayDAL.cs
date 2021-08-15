@@ -1,6 +1,7 @@
 ﻿using AHProject.DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AHProject.DAL
@@ -23,6 +24,18 @@ namespace AHProject.DAL
                 _context.OptionalVolunteerToHolidays.Add(optionalVolunteer);
             };
             _context.SaveChanges();
+        }
+        public List<OptionalVolunteerToHoliday> getOptionalVolunteerByHoliday(int idSchedulingHoliday)
+        {
+            try
+            {
+                return _context.OptionalVolunteerToHolidays.Where(opv => opv.IdSchedulingHoliday == idSchedulingHoliday).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
