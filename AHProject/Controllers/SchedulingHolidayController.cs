@@ -46,6 +46,33 @@ namespace AHProject.Controllers
                 return BadRequest();
             }
         }
+        [HttpGet("{idSchedulingHoliday}")]
+        public ActionResult<SchedulingHolidayDTO> GetSchedulingHolidayById(int idSchedulingHoliday)
+        {
+            try
+            {
+                return Ok(_ISchedulingHolidayBL.GetSchedulingHolidayById(idSchedulingHoliday));
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+        }
+
+        [HttpDelete]
+        public ActionResult<bool> DeleteSchedulingHoliday(int idSchedulingHoliday)
+        {
+            try
+            {
+                return _ISchedulingHolidayBL.DeleteSchedulingHoliday(idSchedulingHoliday);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+        }
 
     }
 }

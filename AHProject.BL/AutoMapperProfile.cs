@@ -25,7 +25,10 @@ namespace AHProject.BL
             CreateMap <Holiday, HolidaysDTO> ();
             CreateMap <HolidaysDTO, Holiday > ();
             CreateMap<SchedulingHoliday, SchedulingHolidayDTO>();
-            CreateMap <SchedulingHolidayDTO, SchedulingHoliday> ();
+            CreateMap<SchedulingHoliday, SchedulingHolidayDTO>().ForMember(d=>d.Descripation,o=>o.MapFrom(s=>s.IdHolidayNavigation.DescriptionHoliday));
+
+            //CreateMap<SchedulingHolidayDTO, SchedulingHoliday>();
+            //CreateMap<SchedulingHolidayDTO, SchedulingHoliday>().ForMember(d=>d.IdHolidayNavigation.DescriptionHoliday,o=>o.MapFrom(s=>s.Descripation));
             CreateMap <HolidayVolunteer, HolidayVolunteerDTO> ();
             CreateMap <SettlementHoliday, SettlementHolidayDTO> ();
             CreateMap <SettlementHolidayDTO, SettlementHoliday > ();

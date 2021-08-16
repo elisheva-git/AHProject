@@ -17,6 +17,7 @@ namespace DTO
         public int IdSchedulingHoliday { get; set; }
         public int YearHoliday { get; set; }
         public bool IsOpen { get; set; }
+        public string Descripation { get; set; }
 
 
         //public virtual Holiday IdHolidayNavigation { get; set; }

@@ -7,6 +7,8 @@ namespace AHProject.DAL
     {
         public bool AddSchedulingHoliday(SchedulingHoliday schedulingHoliday);
         public List<SchedulingHoliday> GetSchedulingHolidays();
+        public bool DeleteSchedulingHoliday(int idSchedulingHoliday);
+        public SchedulingHoliday GetSchedulingHolidayById(int idSchedulingHoliday);
 
     }
 }

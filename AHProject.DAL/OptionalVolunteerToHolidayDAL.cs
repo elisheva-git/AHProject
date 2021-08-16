@@ -25,6 +25,21 @@ namespace AHProject.DAL
             };
             _context.SaveChanges();
         }
+        public void removeVolunteers(int idSchedulingHoliday)
+        {
+            try
+            {
+                foreach (var volunteer in _context.OptionalVolunteerToHolidays.Where(v => v.IdSchedulingHoliday == idSchedulingHoliday))
+                {
+                    _context.OptionalVolunteerToHolidays.Remove(volunteer);
+                };
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public List<OptionalVolunteerToHoliday> getOptionalVolunteerByHoliday(int idSchedulingHoliday)
         {
             try

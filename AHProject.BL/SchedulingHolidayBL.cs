@@ -35,5 +35,31 @@ namespace AHProject.BL
             List<SchedulingHoliday> schedulingHolidays = _ISchedulingHolidayDAL.GetSchedulingHolidays();
             return _mapper.Map<List<SchedulingHoliday>, List<SchedulingHolidayDTO>>(schedulingHolidays);
         }
+        public bool DeleteSchedulingHoliday(int idSchedulingHoliday)
+        {
+            try
+            {
+                return _ISchedulingHolidayDAL.DeleteSchedulingHoliday(idSchedulingHoliday);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public SchedulingHolidayDTO GetSchedulingHolidayById(int idSchedulingHoliday)
+        {
+            try
+            {
+                SchedulingHoliday schedulingHoliday = _ISchedulingHolidayDAL.GetSchedulingHolidayById(idSchedulingHoliday);
+                return _mapper.Map<SchedulingHoliday, SchedulingHolidayDTO>(schedulingHoliday);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

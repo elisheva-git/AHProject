@@ -48,7 +48,35 @@ namespace AHProject.DAL
                 throw;
             }
         }
+        public SchedulingHoliday GetSchedulingHolidayById(int idSchedulingHoliday)
+        {
+            try
+            {
+                return _context.SchedulingHolidays.First(s => s.IdSchedulingHoliday == idSchedulingHoliday);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
+        public bool DeleteSchedulingHoliday(int idSchedulingHoliday)
+        {
+            try
+            {
+                SchedulingHoliday schedulingHoliday = _context.SchedulingHolidays.First(s => s.IdSchedulingHoliday == idSchedulingHoliday);
+                _context.SchedulingHolidays.Remove(schedulingHoliday);
+                _OptionalSettlementToHolidayDAL.removeSettlements(idSchedulingHoliday);
+                _OptionalVolunteerToHolidayDAL.removeVolunteers(idSchedulingHoliday);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
     }
 }

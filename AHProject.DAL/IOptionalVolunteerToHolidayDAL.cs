@@ -7,5 +7,6 @@ namespace AHProject.DAL
     {
         public void addVolunteers(int idSchedulingHoliday);
         public List<OptionalVolunteerToHoliday> getOptionalVolunteerByHoliday(int idSchedulingHoliday);
+        public void removeVolunteers(int idSchedulingHoliday);
     }
 }
