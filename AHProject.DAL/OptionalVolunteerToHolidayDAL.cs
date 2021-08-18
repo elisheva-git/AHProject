@@ -15,7 +15,7 @@ namespace AHProject.DAL
         }
         public void addVolunteers(int idSchedulingHoliday)
         {
-            foreach (var volunteer in _context.Volunteers)
+            foreach (var volunteer in _context.Volunteers.Where(v => v.IsActive == true))
             {
                 OptionalVolunteerToHoliday optionalVolunteer = new OptionalVolunteerToHoliday();
                 optionalVolunteer.IdExperience = null;

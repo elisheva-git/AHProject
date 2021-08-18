@@ -36,8 +36,12 @@ namespace AHProject.BL
             CreateMap <VolunteersSettlementHolidayDTO, VolunteersSettlementHoliday > ();
             CreateMap <ContactPerson, ContactPersonDTO> ();
             CreateMap <ContactPersonDTO, ContactPerson> ();
-            CreateMap <OptionalVolunteerToHoliday, OptionalVolunteerToHolidayDTO> ();
-            CreateMap <OptionalVolunteerToHolidayDTO, OptionalVolunteerToHoliday> ();
+            //CreateMap <OptionalVolunteerToHoliday, OptionalVolunteerToHolidayDTO> ();
+            //CreateMap <OptionalVolunteerToHolidayDTO, OptionalVolunteerToHoliday> ();
+
+            CreateMap<OptionalVolunteerToHoliday, OptionalVolunteerToHolidayDTO>().ForMember(dest => dest.Name, act => act.MapFrom(src => src.IdVolunteerNavigation.FirstName));
+            CreateMap<OptionalVolunteerToHolidayDTO, OptionalVolunteerToHoliday>();
+
             CreateMap <Professional, ProfessionalDTO> ();
             CreateMap <ProfessionalDTO, Professional> ();
             CreateMap <ProfessionalHoliday, ProfessionalHolidaysDTO> ();
