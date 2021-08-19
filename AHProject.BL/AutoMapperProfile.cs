@@ -16,7 +16,7 @@ namespace AHProject.BL
             CreateMap<PrayerText, PrayerTextDTO>();
             CreateMap <PrayerTextDTO, PrayerText> ();
 
-            CreateMap<Settlement, SettlementDTO>().ForMember(dest => dest.ContactPer, src => src.MapFrom<ContactPerson>(d => d.IdContactPerNavigation));
+            CreateMap<Settlement, SettlementDTO>().ForMember(dest => dest.ContactPer, src => src.MapFrom(d => d.IdContactPerNavigation));
             CreateMap<SettlementDTO, Settlement>().ForMember(dest => dest.IdContactPerNavigation, src => src.MapFrom(d => d.ContactPer));
             CreateMap <Volunteer, VolunteersDTO> ();
             CreateMap <VolunteersDTO, Volunteer> ();
@@ -27,8 +27,6 @@ namespace AHProject.BL
             CreateMap<SchedulingHoliday, SchedulingHolidayDTO>();
             CreateMap<SchedulingHoliday, SchedulingHolidayDTO>().ForMember(d=>d.Descripation,o=>o.MapFrom(s=>s.IdHolidayNavigation.DescriptionHoliday));
 
-            //CreateMap<SchedulingHolidayDTO, SchedulingHoliday>();
-            //CreateMap<SchedulingHolidayDTO, SchedulingHoliday>().ForMember(d=>d.IdHolidayNavigation.DescriptionHoliday,o=>o.MapFrom(s=>s.Descripation));
             CreateMap <HolidayVolunteer, HolidayVolunteerDTO> ();
             CreateMap <SettlementHoliday, SettlementHolidayDTO> ();
             CreateMap <SettlementHolidayDTO, SettlementHoliday > ();
@@ -36,8 +34,6 @@ namespace AHProject.BL
             CreateMap <VolunteersSettlementHolidayDTO, VolunteersSettlementHoliday > ();
             CreateMap <ContactPerson, ContactPersonDTO> ();
             CreateMap <ContactPersonDTO, ContactPerson> ();
-            //CreateMap <OptionalVolunteerToHoliday, OptionalVolunteerToHolidayDTO> ();
-            //CreateMap <OptionalVolunteerToHolidayDTO, OptionalVolunteerToHoliday> ();
 
             CreateMap<OptionalVolunteerToHoliday, OptionalVolunteerToHolidayDTO>().ForMember(dest => dest.Volunteer, act => act.MapFrom(src => src.IdVolunteerNavigation));
             CreateMap<OptionalVolunteerToHolidayDTO, OptionalVolunteerToHoliday>();

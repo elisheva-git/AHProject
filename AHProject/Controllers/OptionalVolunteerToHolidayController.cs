@@ -31,6 +31,20 @@ namespace AHProject.Controllers
                 throw;
             }
         }
+        [HttpPost]
+        public bool ChangeOptional( [FromRoute]int newExperience, [FromBody] OptionalVolunteerToHolidayDTO optionalVolunteerToHoliday)
+        {
+            try
+            {
+                _iOptionalVolunteerToHolidayBL.ChangeOptional(optionalVolunteerToHoliday, newExperience);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
 
 
     }

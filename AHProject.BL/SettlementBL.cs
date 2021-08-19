@@ -16,7 +16,7 @@ namespace AHProject.BL
         {
             this._ISettlementDAL = ISettlementDAL;
             this._mapper = mapper;
-            this._mapper.ConfigurationProvider.AssertConfigurationIsValid();
+            //this._mapper.ConfigurationProvider.AssertConfigurationIsValid();
         }
         public bool AddSettlement(SettlementDTO settlement)
         {

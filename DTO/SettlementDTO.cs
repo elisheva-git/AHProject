@@ -18,7 +18,7 @@ namespace DTO
         public string NameSettlement { get; set; }
         public int IdArea { get; set; }
 
-        //public int IdContactPer { get; set; }
+        public int IdContactPer { get; set; }
         public ContactPersonDTO ContactPer { get; set; }
 
         //public virtual Area IdAreaNavigation { get; set; }

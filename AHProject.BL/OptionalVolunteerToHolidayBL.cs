@@ -29,5 +29,19 @@ namespace AHProject.BL
                 throw;
             }
         }
+        public bool ChangeOptional(OptionalVolunteerToHolidayDTO optionalVolunteerToHoliday, int newExperience)
+        {
+            try
+            {
+                OptionalVolunteerToHoliday optionalVolunteerToHolidaymap = _mapper.Map<OptionalVolunteerToHolidayDTO, OptionalVolunteerToHoliday>(optionalVolunteerToHoliday);
+                return _IOptionalVolunteerToHolidayDAL.ChangeOptional(optionalVolunteerToHolidaymap, newExperience);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

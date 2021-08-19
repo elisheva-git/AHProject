@@ -52,5 +52,21 @@ namespace AHProject.DAL
                 throw;
             }
         }
+        public bool ChangeOptional(OptionalVolunteerToHoliday optionalVolunteerToHoliday,int newExperience)
+        {
+            try
+            {
+                optionalVolunteerToHoliday.IdExperience = newExperience;
+                this._context.OptionalVolunteerToHolidays.Update(optionalVolunteerToHoliday);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }
