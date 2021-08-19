@@ -31,11 +31,12 @@ namespace AHProject
         {
             services.AddControllers();
 
-           // services.AddDbContext<AHDBContext>(options => options.UseSqlServer(
-           //Configuration.GetSection("ConnectionString")["AHConnection"]));
-            
-            
-            services.AddDbContext<AHDBContext>(options => {
+            // services.AddDbContext<AHDBContext>(options => options.UseSqlServer(
+            //Configuration.GetSection("ConnectionString")["AHConnection"]));
+
+
+            services.AddDbContext<AHDBContext>(options =>
+            {
                 options.UseSqlServer(
                 Configuration.GetSection("ConnectionString")["AHConnection"]);
                 options.UseLazyLoadingProxies(true);
