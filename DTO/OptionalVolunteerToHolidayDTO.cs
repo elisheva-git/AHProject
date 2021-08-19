@@ -10,8 +10,7 @@ namespace DTO
         public int IdSchedulingHoliday { get; set; }
         public int IdExperience { get; set; }
 
-        public string Name { get; set; }
-        public string Phone { get; set; }
+        public VolunteersDTO Volunteer { get; set; }
 
         //public virtual ExperienceOptional IdExperienceNavigation { get; set; }
         //public virtual SchedulingHoliday IdSchedulingHolidayNavigation { get; set; }

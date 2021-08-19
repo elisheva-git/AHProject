@@ -39,7 +39,7 @@ namespace AHProject.BL
             //CreateMap <OptionalVolunteerToHoliday, OptionalVolunteerToHolidayDTO> ();
             //CreateMap <OptionalVolunteerToHolidayDTO, OptionalVolunteerToHoliday> ();
 
-            CreateMap<OptionalVolunteerToHoliday, OptionalVolunteerToHolidayDTO>().ForMember(dest => dest.Name, act => act.MapFrom(src => src.IdVolunteerNavigation.FirstName));
+            CreateMap<OptionalVolunteerToHoliday, OptionalVolunteerToHolidayDTO>().ForMember(dest => dest.Volunteer, act => act.MapFrom(src => src.IdVolunteerNavigation));
             CreateMap<OptionalVolunteerToHolidayDTO, OptionalVolunteerToHoliday>();
 
             CreateMap <Professional, ProfessionalDTO> ();
