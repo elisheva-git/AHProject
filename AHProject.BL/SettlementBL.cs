@@ -23,7 +23,7 @@ namespace AHProject.BL
             try
             {
                 Settlement newSettlement = _mapper.Map<SettlementDTO, Settlement>(settlement);
-                newSettlement.IdSettlement = 0;
+                //newSettlement.IdSettlement = 0;
                 return _ISettlementDAL.AddSettlement(newSettlement);
             }
             catch (Exception e)

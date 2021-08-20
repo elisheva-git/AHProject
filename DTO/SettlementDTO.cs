@@ -21,6 +21,8 @@ namespace DTO
         public int IdContactPer { get; set; }
         public ContactPersonDTO ContactPer { get; set; }
 
+
+
         //public virtual Area IdAreaNavigation { get; set; }
         //public virtual ContactPerson IdContactPerNavigation { get; set; }
         //public virtual ICollection<ContactPerson> ContactPeople { get; set; }

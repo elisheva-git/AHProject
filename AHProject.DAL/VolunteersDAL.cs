@@ -50,7 +50,7 @@ namespace AHProject.DAL
         }
         public List<Volunteer> GetVolunteers()
         {
-            return _context.Volunteers.ToList();
+            return _context.Volunteers.Where(v=>v.IsActive).ToList();
         }
         public Volunteer GetVolunteerById(int id)
         {
