@@ -31,7 +31,7 @@ namespace AHProject.Controllers
                 throw;
             }
         }
-        [HttpPost]
+        [HttpPost("{newExperience}")]
         public bool ChangeOptional( [FromRoute]int newExperience, [FromBody] OptionalVolunteerToHolidayDTO optionalVolunteerToHoliday)
         {
             try

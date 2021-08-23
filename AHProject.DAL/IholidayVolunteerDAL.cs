@@ -1,6 +1,10 @@
-﻿namespace AHProject.DAL
+﻿using AHProject.DAL.Models;
+
+namespace AHProject.DAL
 {
-    public class IHolidayVolunteerDAL
+    public interface IHolidayVolunteerDAL
     {
+        public bool AddHolidayVolunteer(HolidayVolunteer volunteerHoliday);
+        public bool DeleteHolidayVolunteer(int idVolunteer, int idSchedulingHoliday);
     }
 }

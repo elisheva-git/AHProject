@@ -54,12 +54,13 @@ namespace AHProject.DAL
         }
         public Volunteer GetVolunteerById(int id)
         {
-            
-            Volunteer volunteer = _context.Volunteers.FirstOrDefault(v=>v.IdVolunteer==id);
+
+            Volunteer volunteer = _context.Volunteers.FirstOrDefault(v => v.IdVolunteer == id);
             return volunteer;
         }
         public bool ChangeStatus(Volunteer volunteerToChange)
         {
+            //לעשות בדיקה באיזה עוד טבלאות למחוק
             try
             {
                 Volunteer volunteer = _context.Volunteers.FirstOrDefault(v => v.IdVolunteer == volunteerToChange.IdVolunteer);
