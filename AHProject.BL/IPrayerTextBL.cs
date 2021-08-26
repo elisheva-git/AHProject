@@ -1,6 +1,11 @@
-﻿namespace AHProject.BL
+﻿using DTO;
+using System.Collections.Generic;
+
+namespace AHProject.BL
 {
     public interface IPrayerTextBL
     {
+        public List<PrayerTextDTO> GetPrayerTexts();
+
     }
 }

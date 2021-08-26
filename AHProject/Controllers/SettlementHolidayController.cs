@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AHProject.BL;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,10 @@ namespace AHProject.Controllers
     [ApiController]
     public class SettlementHolidayController : ControllerBase
     {
+        ISettlementHolidayBL _ISettlementHolidayBL;
+        public SettlementHolidayController(ISettlementHolidayBL iSettlementHolidayBL)
+        {
+            this._ISettlementHolidayBL = iSettlementHolidayBL;
+        }
     }
 }

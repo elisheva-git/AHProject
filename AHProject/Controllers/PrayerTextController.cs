@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AHProject.BL;
+using DTO;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,5 +13,23 @@ namespace AHProject.Controllers
     [ApiController]
     public class PrayerTextController : ControllerBase
     {
+        IPrayerTextBL _IPrayerTextBL;
+        public PrayerTextController(IPrayerTextBL iPrayerTextBL)
+        {
+            this._IPrayerTextBL = iPrayerTextBL;
+        }
+        [HttpGet("[action]")]
+        public ActionResult<List<PrayerTextDTO>> GetPrayerTexts()
+        {
+            try
+            {
+                return Ok(_IPrayerTextBL.GetPrayerTexts());
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
     }
 }
