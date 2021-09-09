@@ -25,6 +25,9 @@ namespace AHProject.DAL
                 {
                     _context.SchedulingHolidays.Add(schedulingHoliday);
                     _context.SaveChanges();
+                    //SchedulingHoliday q = _context.SchedulingHolidays.FirstOrDefault(s => s.YearHoliday == schedulingHoliday.YearHoliday && s.IdHoliday == schedulingHoliday.IdHoliday);
+                    //q.OptionalVolunteerToHolidays.Add();
+                    //_context.Volunteers.ToList().ForEach(v => q.OptionalVolunteerToHolidays.Add());
                     _OptionalVolunteerToHolidayDAL.addVolunteers(schedulingHoliday.IdSchedulingHoliday);
                     _OptionalSettlementToHolidayDAL.addSettlements(schedulingHoliday.IdSchedulingHoliday);
                     return true;

@@ -1,4 +1,5 @@
 ﻿using AHProject.BL;
+using DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,6 +17,19 @@ namespace AHProject.Controllers
         public SettlementHolidayController(ISettlementHolidayBL iSettlementHolidayBL)
         {
             this._ISettlementHolidayBL = iSettlementHolidayBL;
+        }
+        [HttpPost]
+        public ActionResult<bool> AddSettlementHoliday(SettlementHolidayDTO settlementHoliday)
+        {
+            try
+            {
+                return Ok(_ISettlementHolidayBL.AddSettlementHoliday(settlementHoliday));
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+                throw;
+            }
         }
     }
 }

@@ -11,14 +11,13 @@ namespace AHProject.DAL.Models
         {
             OptionalSettlementToHolidays = new HashSet<OptionalSettlementToHoliday>();
             OptionalVolunteerToHolidays = new HashSet<OptionalVolunteerToHoliday>();
-            SettlementHolidays = new HashSet<SettlementHoliday>();
         }
 
         public int IdExperience { get; set; }
         public string DescriptionExperience { get; set; }
+        public string Icon { get; set; }
 
         public virtual ICollection<OptionalSettlementToHoliday> OptionalSettlementToHolidays { get; set; }
         public virtual ICollection<OptionalVolunteerToHoliday> OptionalVolunteerToHolidays { get; set; }
-        public virtual ICollection<SettlementHoliday> SettlementHolidays { get; set; }
     }
 }

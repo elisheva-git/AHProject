@@ -20,6 +20,7 @@ namespace AHProject.DAL.Models
         public string NameSettlement { get; set; }
         public int IdArea { get; set; }
         public int IdContactPer { get; set; }
+        public bool IsActive { get; set; }
 
         public virtual Area IdAreaNavigation { get; set; }
         public virtual ContactPerson IdContactPerNavigation { get; set; }

@@ -20,6 +20,7 @@ namespace DTO
 
         public int IdContactPer { get; set; }
         public ContactPersonDTO ContactPer { get; set; }
+        public string AreaName { get; set; }
 
 
 

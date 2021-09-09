@@ -11,8 +11,7 @@ namespace AHProject.DAL.Models
         public int IdSchedulingHoliday { get; set; }
         public int IdProfessional { get; set; }
 
+        public virtual HolidayVolunteer Id { get; set; }
         public virtual Professional IdProfessionalNavigation { get; set; }
-        public virtual SchedulingHoliday IdSchedulingHolidayNavigation { get; set; }
-        public virtual Volunteer IdVolunteerNavigation { get; set; }
     }
 }

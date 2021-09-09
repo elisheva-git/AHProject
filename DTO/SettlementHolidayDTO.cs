@@ -13,7 +13,8 @@ namespace DTO
         public bool IsSynagogue { get; set; }
         public bool IsSeferTora { get; set; }
         public string AdditionalNeeds { get; set; }
-        public int? IdExperience { get; set; }
+        public List<int> Professionals { get; set; }
+
 
         //public virtual ExperienceOptional IdExperienceNavigation { get; set; }
         //public virtual PrayerText IdPrayerNavigation { get; set; }

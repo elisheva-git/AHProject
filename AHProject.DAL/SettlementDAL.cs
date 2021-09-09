@@ -45,6 +45,7 @@ namespace AHProject.DAL
                 //{
                 //    return false;
                 //}
+              
                 _context.Settlements.Add(settlement);
                 _context.SaveChanges();
                 return true;

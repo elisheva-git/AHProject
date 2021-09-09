@@ -14,6 +14,8 @@ namespace DTO
 
         public int IdExperience { get; set; }
         public string DescriptionExperience { get; set; }
+        public string Icon { get; set; }
+
 
         //public virtual ICollection<OptionalVolunteerToHoliday> OptionalVolunteerToHolidays { get; set; }
         //public virtual ICollection<SettlementHoliday> SettlementHolidays { get; set; }

@@ -18,7 +18,6 @@ namespace AHProject.DAL
             {
                 OptionalSettlementToHoliday optionalSettlement = new OptionalSettlementToHoliday();
                 optionalSettlement.IdSettlement = settlement.IdSettlement;
-                optionalSettlement.IdExperience = 4;
                 optionalSettlement.IdSchedulingHoliday = idSchedulingHoliday;
                 _context.OptionalSettlementToHolidays.Add(optionalSettlement);
             };
@@ -36,6 +35,33 @@ namespace AHProject.DAL
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+        public List<OptionalSettlementToHoliday> getOptionalSettlementByHoliday(int idSchedulingHoliday)
+        {
+            try
+            {
+                return _context.OptionalSettlementToHolidays.Where(opv => opv.IdSchedulingHoliday == idSchedulingHoliday).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public bool ChangeOptional(OptionalSettlementToHoliday optionalSettlementToHoliday, int newExperience)
+        {
+            try
+            {
+                OptionalSettlementToHoliday optional = _context.OptionalSettlementToHolidays.FirstOrDefault(o => o.IdSettlement == optionalSettlementToHoliday.IdSettlement && o.IdSchedulingHoliday == optionalSettlementToHoliday.IdSchedulingHoliday);
+                optional.IdExperience = newExperience;
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

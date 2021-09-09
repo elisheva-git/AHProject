@@ -56,8 +56,8 @@ namespace AHProject.DAL
         {
             try
             {
-                optionalVolunteerToHoliday.IdExperience = newExperience;
-                this._context.OptionalVolunteerToHolidays.Update(optionalVolunteerToHoliday);
+                OptionalVolunteerToHoliday optional = _context.OptionalVolunteerToHolidays.FirstOrDefault(o => o.IdVolunteer == optionalVolunteerToHoliday.IdVolunteer && o.IdSchedulingHoliday == optionalVolunteerToHoliday.IdSchedulingHoliday);
+                optional.IdExperience = newExperience;
                 _context.SaveChanges();
                 return true;
             }

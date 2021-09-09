@@ -24,8 +24,8 @@ namespace AHProject.BL
             try
             {
                 HolidayVolunteer holidayVolunteer = _mapper.Map<HolidayVolunteerDTO, HolidayVolunteer>(volunteerHoliday);
-                List<Professional> professionals=_mapper.Map<List<ProfessionalDTO>,List< Professional >> (volunteerHoliday.Professionals);
-                _IprofessionalToVolunteer.AddProfessionalsToVolunteer(professionals, volunteerHoliday.IdSchedulingHoliday, volunteerHoliday.IdVolunteer);
+               // List<Professional> professionals=_mapper.Map<List<ProfessionalDTO>,List< Professional >> (volunteerHoliday.Professionals);
+              //  _IprofessionalToVolunteer.AddProfessionalsToVolunteer(professionals, volunteerHoliday.IdSchedulingHoliday, volunteerHoliday.IdVolunteer);
                 return _IHolidayVolunteerDAL.AddHolidayVolunteer(holidayVolunteer);
             }
             catch (Exception)
