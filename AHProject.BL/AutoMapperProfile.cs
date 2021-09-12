@@ -18,14 +18,18 @@ namespace AHProject.BL
             CreateMap <PrayerTextDTO, PrayerText> ();
 
             CreateMap<Settlement, SettlementDTO>().ForMember(dest => dest.ContactPer, src => src.MapFrom(d => d.IdContactPerNavigation)).ForMember(dest=>dest.AreaName,src=>src.MapFrom(s=>s.IdAreaNavigation.AreaName));
-            CreateMap<SettlementDTO, Settlement>().ForMember(dest => dest.IdContactPerNavigation, src => src.MapFrom(d => d.ContactPer)).ForPath(dest => dest.IdAreaNavigation.AreaName, src => src.MapFrom(s => s.AreaName));
+            //CreateMap<SettlementDTO, Settlement>().ForMember(dest => dest.IdContactPerNavigation, src => src.MapFrom(d => d.ContactPer)).ForPath(dest => dest.IdAreaNavigation.AreaName, src => src.MapFrom(s => s.AreaName));
+            CreateMap<SettlementDTO, Settlement>().ForMember(dest => dest.IdContactPerNavigation, src => src.MapFrom(d => d.ContactPer));
+
             CreateMap <Volunteer, VolunteersDTO> ();
             CreateMap <VolunteersDTO, Volunteer> ();
             CreateMap <ExperienceOptional, ExperienceOptionalDTO> ();
             CreateMap <ExperienceOptionalDTO, ExperienceOptional > ();
             CreateMap <Holiday, HolidaysDTO> ();
             CreateMap <HolidaysDTO, Holiday > ();
-            CreateMap<SchedulingHolidayDTO, SchedulingHoliday>().ForPath(dest=>dest.IdHolidayNavigation.DescriptionHoliday,src=>src.MapFrom(s=>s.Descripation));
+            //CreateMap<SchedulingHolidayDTO, SchedulingHoliday>().ForPath(dest=>dest.IdHolidayNavigation.DescriptionHoliday,src=>src.MapFrom(s=>s.Descripation));
+            CreateMap<SchedulingHolidayDTO, SchedulingHoliday>();
+
             CreateMap<SchedulingHoliday, SchedulingHolidayDTO>().ForMember(d=>d.Descripation,o=>o.MapFrom(s=>s.IdHolidayNavigation.DescriptionHoliday));
             CreateMap<int, ProfessionalToVolunteer>().ConvertUsing((src, dest) =>
             new ProfessionalToVolunteer { IdProfessional = src }

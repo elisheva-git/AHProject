@@ -60,7 +60,7 @@ namespace AHProject.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{idSchedulingHoliday}")]
         public ActionResult<bool> DeleteSchedulingHoliday(int idSchedulingHoliday)
         {
             try
@@ -69,7 +69,6 @@ namespace AHProject.Controllers
             }
             catch (Exception)
             {
-
                 return BadRequest();
             }
         }

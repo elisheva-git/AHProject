@@ -68,13 +68,21 @@ namespace AHProject.DAL
             try
             {
                 SchedulingHoliday schedulingHoliday = _context.SchedulingHolidays.First(s => s.IdSchedulingHoliday == idSchedulingHoliday);
+                //_OptionalSettlementToHolidayDAL.removeSettlements(idSchedulingHoliday);
+                //_OptionalVolunteerToHolidayDAL.removeVolunteers(idSchedulingHoliday);
+                schedulingHoliday.OptionalSettlementToHolidays.Clear();
+                schedulingHoliday.OptionalVolunteerToHolidays.Clear();
+                schedulingHoliday.SettlementHolidays.Clear();
+                schedulingHoliday.HolidayVolunteers.Clear();
+                schedulingHoliday.ProfessionalToSchedulingHolidays.Clear();
+                //_context.ProfessionalToVolunteers.Where(p => p.IdSchedulingHoliday == idSchedulingHoliday).ToList().Clear();
+                _context.ProfessionalToVolunteers.RemoveRange(_context.ProfessionalToVolunteers.Where(p => p.IdSchedulingHoliday == idSchedulingHoliday).ToList());
+                //למחוק את המקצועות
                 _context.SchedulingHolidays.Remove(schedulingHoliday);
-                _OptionalSettlementToHolidayDAL.removeSettlements(idSchedulingHoliday);
-                _OptionalVolunteerToHolidayDAL.removeVolunteers(idSchedulingHoliday);
                 _context.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw;
