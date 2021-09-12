@@ -32,6 +32,20 @@ namespace AHProject.Controllers
                 throw e;
             }
         }
+
+        [HttpPut]
+        public ActionResult<bool> UpdateSettlement([FromBody] SettlementDTO settlementToUpdate)
+        {
+            try
+            {
+                return Ok(_ISettlementBL.UpdatSettlement(settlementToUpdate));
+            }
+            catch (Exception)
+            {
+                return BadRequest(false);
+            }
+        }
+
         [HttpGet]
         public ActionResult<List<SettlementDTO>> GetSettlements()
         {

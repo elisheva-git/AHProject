@@ -45,7 +45,18 @@ namespace AHProject.BL
             Settlement settlement = _ISettlementDAL.GetSettlementById(id);
             return _mapper.Map<Settlement, SettlementDTO>(settlement);
         }
-
+        public bool UpdatSettlement(SettlementDTO settlement)
+        {
+            try
+            {
+                Settlement settlementToUpdate = _mapper.Map<SettlementDTO, Settlement>(settlement);
+                return _ISettlementDAL.UpdateSettlement(settlementToUpdate);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
     }
 }

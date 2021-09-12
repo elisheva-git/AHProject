@@ -60,6 +60,20 @@ namespace AHProject.DAL
             Settlement settlement = _context.Settlements.FirstOrDefault(s => id == s.IdSettlement);
             return settlement;
         }
+        public bool UpdateSettlement(Settlement settlement)
+        {
+            try
+            {
+                //Settlement settlementToUpdate = _context.Settlements.SingleOrDefault(v => v.IdSettlement == id);
+                _context.Settlements.Update(settlement);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
     }
 }

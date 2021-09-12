@@ -9,6 +9,6 @@ namespace AHProject.BL
         public List<SettlementDTO> GetSettlements();
         public bool DeleteSettlement(int idSettlement);
         public SettlementDTO GetSettlementById(int id);
-
+        public bool UpdatSettlement(SettlementDTO settlement);
     }
 }
