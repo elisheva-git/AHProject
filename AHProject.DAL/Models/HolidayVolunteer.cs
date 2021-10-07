@@ -20,8 +20,10 @@ namespace AHProject.DAL.Models
         public int IdPrayer { get; set; }
         public bool HasCar { get; set; }
         public bool HasLicense { get; set; }
+        public int? IdSettlement { get; set; }
 
         public virtual PrayerText IdPrayerNavigation { get; set; }
+        public virtual SettlementHoliday IdS { get; set; }
         public virtual SchedulingHoliday IdSchedulingHolidayNavigation { get; set; }
         public virtual Volunteer IdVolunteerNavigation { get; set; }
         public virtual ICollection<ProfessionalToVolunteer> ProfessionalToVolunteers { get; set; }

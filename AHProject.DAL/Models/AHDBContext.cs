@@ -35,7 +35,6 @@ namespace AHProject.DAL.Models
         public virtual DbSet<SettlementHoliday> SettlementHolidays { get; set; }
         public virtual DbSet<SettlementHoliday1> SettlementHolidays1 { get; set; }
         public virtual DbSet<Volunteer> Volunteers { get; set; }
-        public virtual DbSet<VolunteersSettlementHoliday> VolunteersSettlementHolidays { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -141,6 +140,11 @@ namespace AHProject.DAL.Models
                     .HasForeignKey(d => d.IdVolunteer)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__holidayVo__IdVol__48CFD27E");
+
+                entity.HasOne(d => d.IdS)
+                    .WithMany(p => p.HolidayVolunteers)
+                    .HasForeignKey(d => new { d.IdSettlement, d.IdSchedulingHoliday })
+                    .HasConstraintName("FK__holidayVolunteer__57DD0BE4");
             });
 
             modelBuilder.Entity<OptionalSettlementToHoliday>(entity =>
@@ -416,32 +420,6 @@ namespace AHProject.DAL.Models
                     .HasForeignKey(d => d.IdArea)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Volunteer__IdAre__3E52440B");
-            });
-
-            modelBuilder.Entity<VolunteersSettlementHoliday>(entity =>
-            {
-                entity.HasKey(e => new { e.IdSettlement, e.IdSchedulingHoliday, e.IdVolunteer })
-                    .HasName("PK__Voluntee__82B633569400AE18");
-
-                entity.ToTable("VolunteersSettlementHoliday");
-
-                entity.HasOne(d => d.IdSchedulingHolidayNavigation)
-                    .WithMany(p => p.VolunteersSettlementHolidays)
-                    .HasForeignKey(d => d.IdSchedulingHoliday)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Volunteer__IdSch__534D60F1");
-
-                entity.HasOne(d => d.IdSettlementNavigation)
-                    .WithMany(p => p.VolunteersSettlementHolidays)
-                    .HasForeignKey(d => d.IdSettlement)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Volunteer__IdSet__52593CB8");
-
-                entity.HasOne(d => d.IdVolunteerNavigation)
-                    .WithMany(p => p.VolunteersSettlementHolidays)
-                    .HasForeignKey(d => d.IdVolunteer)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Volunteer__IdVol__5441852A");
             });
 
             OnModelCreatingPartial(modelBuilder);

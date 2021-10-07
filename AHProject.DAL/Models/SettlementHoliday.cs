@@ -7,6 +7,11 @@ namespace AHProject.DAL.Models
 {
     public partial class SettlementHoliday
     {
+        public SettlementHoliday()
+        {
+            HolidayVolunteers = new HashSet<HolidayVolunteer>();
+        }
+
         public int IdSettlement { get; set; }
         public int IdSchedulingHoliday { get; set; }
         public int AmountPeopleConsumed { get; set; }
@@ -18,6 +23,6 @@ namespace AHProject.DAL.Models
         public virtual PrayerText IdPrayerNavigation { get; set; }
         public virtual SchedulingHoliday IdSchedulingHolidayNavigation { get; set; }
         public virtual Settlement IdSettlementNavigation { get; set; }
+        public virtual ICollection<HolidayVolunteer> HolidayVolunteers { get; set; }
     }
-
 }
