@@ -10,6 +10,7 @@ namespace AHProject.DAL.Models
         public SettlementHoliday()
         {
             HolidayVolunteers = new HashSet<HolidayVolunteer>();
+            ProfessionalToSchedulingHolidays = new HashSet<ProfessionalToSchedulingHoliday>();
         }
 
         public int IdSettlement { get; set; }
@@ -24,5 +25,6 @@ namespace AHProject.DAL.Models
         public virtual SchedulingHoliday IdSchedulingHolidayNavigation { get; set; }
         public virtual Settlement IdSettlementNavigation { get; set; }
         public virtual ICollection<HolidayVolunteer> HolidayVolunteers { get; set; }
+        public virtual ICollection<ProfessionalToSchedulingHoliday> ProfessionalToSchedulingHolidays { get; set; }
     }
 }

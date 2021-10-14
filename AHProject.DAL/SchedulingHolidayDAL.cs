@@ -74,7 +74,7 @@ namespace AHProject.DAL
                 schedulingHoliday.OptionalVolunteerToHolidays.Clear();
                 schedulingHoliday.SettlementHolidays.Clear();
                 schedulingHoliday.HolidayVolunteers.Clear();
-                schedulingHoliday.ProfessionalToSchedulingHolidays.Clear();
+                //schedulingHoliday.ProfessionalToSchedulingHolidays.Clear();
                 //_context.ProfessionalToVolunteers.Where(p => p.IdSchedulingHoliday == idSchedulingHoliday).ToList().Clear();
                 _context.ProfessionalToVolunteers.RemoveRange(_context.ProfessionalToVolunteers.Where(p => p.IdSchedulingHoliday == idSchedulingHoliday).ToList());
                 //למחוק את המקצועות

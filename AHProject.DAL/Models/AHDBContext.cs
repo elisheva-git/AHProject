@@ -262,17 +262,11 @@ namespace AHProject.DAL.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Professio__IdPro__6C190EBB");
 
-                entity.HasOne(d => d.IdSchedulingHolidayNavigation)
+                entity.HasOne(d => d.IdS)
                     .WithMany(p => p.ProfessionalToSchedulingHolidays)
-                    .HasForeignKey(d => d.IdSchedulingHoliday)
+                    .HasForeignKey(d => new { d.IdSettlement, d.IdSchedulingHoliday })
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Professio__IdSch__6B24EA82");
-
-                entity.HasOne(d => d.IdSettlementNavigation)
-                    .WithMany(p => p.ProfessionalToSchedulingHolidays)
-                    .HasForeignKey(d => d.IdSettlement)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Professio__IdSet__6A30C649");
+                    .HasConstraintName("FK__ProfessionalToSc__58D1301D");
             });
 
             modelBuilder.Entity<ProfessionalToVolunteer>(entity =>

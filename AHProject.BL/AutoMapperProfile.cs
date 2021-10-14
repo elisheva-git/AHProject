@@ -36,15 +36,16 @@ namespace AHProject.BL
             );
             CreateMap<HolidayVolunteer, HolidayVolunteerDTO>().ForMember(dest => dest.Professionals, src => src.MapFrom(v => v.ProfessionalToVolunteers));
             CreateMap<HolidayVolunteerDTO, HolidayVolunteer>().ForMember(dest => dest.ProfessionalToVolunteers, src => src.MapFrom(v => v.Professionals));
-            
-            //CreateMap<int, ProfessionalToSchedulingHoliday>().ConvertUsing((src, dest) =>
-            //new ProfessionalToSchedulingHoliday { IdProfessional = src }
-            //);
-            //CreateMap<SettlementHoliday, SettlementHolidayDTO>().ForMember(dest => dest.Professionals, src => src.MapFrom(s => s.));
-            
-            CreateMap<SettlementHoliday, SettlementHolidayDTO>();
-            CreateMap<SettlementHolidayDTO, SettlementHoliday > ();
-            CreateMap <VolunteersSettlementHoliday, VolunteersSettlementHolidayDTO> ();
+
+            CreateMap<int, ProfessionalToSchedulingHoliday>().ConvertUsing((src, dest) =>
+            new ProfessionalToSchedulingHoliday { IdProfessional = src }
+            );
+            CreateMap<SettlementHoliday, SettlementHolidayDTO>().ForMember(dest => dest.Professionals, src => src.MapFrom(s => s.ProfessionalToSchedulingHolidays));
+            CreateMap< SettlementHolidayDTO,SettlementHoliday > ().ForMember(dest => dest.ProfessionalToSchedulingHolidays, src => src.MapFrom(s => s.Professionals));
+
+            //CreateMap<SettlementHoliday, SettlementHolidayDTO>();
+            //CreateMap<SettlementHolidayDTO, SettlementHoliday > ();
+            CreateMap<VolunteersSettlementHoliday, VolunteersSettlementHolidayDTO> ();
             CreateMap <VolunteersSettlementHolidayDTO, VolunteersSettlementHoliday > ();
             CreateMap <ContactPerson, ContactPersonDTO> ();
             CreateMap <ContactPersonDTO, ContactPerson> ();
