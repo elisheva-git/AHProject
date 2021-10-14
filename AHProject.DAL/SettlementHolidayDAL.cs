@@ -19,7 +19,7 @@ namespace AHProject.DAL
             {
                 SettlementHoliday settlementExist = null;
                 settlementExist = _context.SettlementHolidays.ToList().FirstOrDefault(s => s.IdSettlement == settlementHoliday.IdSettlement && s.IdSchedulingHoliday == settlementHoliday.IdSchedulingHoliday);
-                if (settlementHoliday != null)
+                if (settlementExist != null)
                 {
                     return false;
                 }
@@ -30,6 +30,18 @@ namespace AHProject.DAL
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+        public List<SettlementHoliday> GetSettlementsBySchedulingHoliday(int schedulingHoliday)
+        {
+            try
+            {
+                return _context.SettlementHolidays.Where(s => s.IdSchedulingHoliday == schedulingHoliday).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

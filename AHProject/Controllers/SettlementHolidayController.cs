@@ -31,5 +31,19 @@ namespace AHProject.Controllers
                 throw;
             }
         }
+        [HttpGet("{schedulingHoliday}")]
+        public List<SettlementHolidayDTO> GetSettlementsBySchedulingHoliday(int schedulingHoliday)
+        {
+            try
+            {
+                return _ISettlementHolidayBL.GetSettlementsBySchedulingHoliday(schedulingHoliday);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

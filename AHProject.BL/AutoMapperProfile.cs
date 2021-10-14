@@ -36,12 +36,14 @@ namespace AHProject.BL
             );
             CreateMap<HolidayVolunteer, HolidayVolunteerDTO>().ForMember(dest => dest.Professionals, src => src.MapFrom(v => v.ProfessionalToVolunteers));
             CreateMap<HolidayVolunteerDTO, HolidayVolunteer>().ForMember(dest => dest.ProfessionalToVolunteers, src => src.MapFrom(v => v.Professionals));
-            CreateMap<int, ProfessionalToSchedulingHoliday>().ConvertUsing((src, dest) =>
-            new ProfessionalToSchedulingHoliday { IdProfessional = src }
-            );
-
-            //CreateMap <SettlementHoliday, SettlementHolidayDTO> ().ForMember(dest => dest.Professionals, src => src.MapFrom(v => v.));
-            CreateMap <SettlementHolidayDTO, SettlementHoliday > ();
+            
+            //CreateMap<int, ProfessionalToSchedulingHoliday>().ConvertUsing((src, dest) =>
+            //new ProfessionalToSchedulingHoliday { IdProfessional = src }
+            //);
+            //CreateMap<SettlementHoliday, SettlementHolidayDTO>().ForMember(dest => dest.Professionals, src => src.MapFrom(s => s.));
+            
+            CreateMap<SettlementHoliday, SettlementHolidayDTO>();
+            CreateMap<SettlementHolidayDTO, SettlementHoliday > ();
             CreateMap <VolunteersSettlementHoliday, VolunteersSettlementHolidayDTO> ();
             CreateMap <VolunteersSettlementHolidayDTO, VolunteersSettlementHoliday > ();
             CreateMap <ContactPerson, ContactPersonDTO> ();
@@ -56,8 +58,8 @@ namespace AHProject.BL
             CreateMap <ProfessionalDTO, Professional> ();
             CreateMap <ProfessionalHoliday, ProfessionalHolidaysDTO> ();
             CreateMap <ProfessionalHolidaysDTO, ProfessionalHoliday> ();
-            CreateMap <SettlementHolidays, SettlementHolidaysDTO> ();
-            CreateMap <SettlementHolidaysDTO, SettlementHolidays> (); 
+            //CreateMap <SettlementHolidays, SettlementHolidaysDTO> ();
+            //CreateMap <SettlementHolidaysDTO, SettlementHolidays> (); 
             CreateMap <Password, PasswordsDTO> ();
             CreateMap <PasswordsDTO, Password> ();
             CreateMap <ProfessionalToSchedulingHoliday, ProfessionalToSchedulingHolidayDTO> ();
