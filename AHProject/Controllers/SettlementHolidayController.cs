@@ -40,7 +40,6 @@ namespace AHProject.Controllers
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

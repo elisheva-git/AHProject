@@ -46,6 +46,18 @@ namespace AHProject.BL
                 throw;
             }
         }
+        public List<HolidayVolunteerDTO> GetVolunteersBySchedulingHoliday(int schedulingHoliday)
+        {
+            try
+            {
+                List<HolidayVolunteer> holidayVolunteers = _IHolidayVolunteerDAL.GetVolunteersBySchedulingHoliday(schedulingHoliday);
+                return _mapper.Map<List<HolidayVolunteer>, List<HolidayVolunteerDTO>>(holidayVolunteers);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
     }
 }

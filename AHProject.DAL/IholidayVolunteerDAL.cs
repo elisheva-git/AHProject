@@ -1,4 +1,5 @@
 ﻿using AHProject.DAL.Models;
+using System.Collections.Generic;
 
 namespace AHProject.DAL
 {
@@ -6,5 +7,7 @@ namespace AHProject.DAL
     {
         public bool AddHolidayVolunteer(HolidayVolunteer volunteerHoliday);
         public bool DeleteHolidayVolunteer(int idVolunteer, int idSchedulingHoliday);
+        public List<HolidayVolunteer> GetVolunteersBySchedulingHoliday(int schedulingHoliday);
+
     }
 }

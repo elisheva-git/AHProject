@@ -30,5 +30,18 @@ namespace AHProject.BL
                 throw;
             }
         }
+        public List<ProfessionalDTO> GetProfessionals()
+        {
+            try
+            {
+                List<Professional> professionals = _IprofessionalDAL.GetProfessionals();
+                return _mapper.Map<List<Professional>, List<ProfessionalDTO>>(professionals);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

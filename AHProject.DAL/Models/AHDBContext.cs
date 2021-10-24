@@ -296,6 +296,8 @@ namespace AHProject.DAL.Models
 
                 entity.ToTable("SchedulingHoliday");
 
+                entity.Property(e => e.IsValid).HasDefaultValueSql("((1))");
+
                 entity.HasOne(d => d.IdHolidayNavigation)
                     .WithMany(p => p.SchedulingHolidays)
                     .HasForeignKey(d => d.IdHoliday)

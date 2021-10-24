@@ -36,5 +36,17 @@ namespace AHProject.DAL
                 throw;
             }
         }
+        public List<Professional> GetProfessionals()
+        {
+            try
+            {
+                return _context.Professionals.ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

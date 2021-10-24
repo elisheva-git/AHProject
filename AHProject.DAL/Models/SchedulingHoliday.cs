@@ -19,6 +19,7 @@ namespace AHProject.DAL.Models
         public int IdHoliday { get; set; }
         public int YearHoliday { get; set; }
         public bool? IsOpen { get; set; }
+        public bool? IsValid { get; set; }
 
         public virtual Holiday IdHolidayNavigation { get; set; }
         public virtual ICollection<HolidayVolunteer> HolidayVolunteers { get; set; }

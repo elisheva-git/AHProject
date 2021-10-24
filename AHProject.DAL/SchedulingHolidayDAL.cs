@@ -43,7 +43,7 @@ namespace AHProject.DAL
         {
             try
             {
-                return _context.SchedulingHolidays.ToList();
+                return _context.SchedulingHolidays.Where(s=>s.IsValid==true).ToList();
             }
             catch (Exception)
             {
@@ -68,17 +68,7 @@ namespace AHProject.DAL
             try
             {
                 SchedulingHoliday schedulingHoliday = _context.SchedulingHolidays.First(s => s.IdSchedulingHoliday == idSchedulingHoliday);
-                //_OptionalSettlementToHolidayDAL.removeSettlements(idSchedulingHoliday);
-                //_OptionalVolunteerToHolidayDAL.removeVolunteers(idSchedulingHoliday);
-                schedulingHoliday.OptionalSettlementToHolidays.Clear();
-                schedulingHoliday.OptionalVolunteerToHolidays.Clear();
-                schedulingHoliday.SettlementHolidays.Clear();
-                schedulingHoliday.HolidayVolunteers.Clear();
-                //schedulingHoliday.ProfessionalToSchedulingHolidays.Clear();
-                //_context.ProfessionalToVolunteers.Where(p => p.IdSchedulingHoliday == idSchedulingHoliday).ToList().Clear();
-                _context.ProfessionalToVolunteers.RemoveRange(_context.ProfessionalToVolunteers.Where(p => p.IdSchedulingHoliday == idSchedulingHoliday).ToList());
-                //למחוק את המקצועות
-                _context.SchedulingHolidays.Remove(schedulingHoliday);
+                schedulingHoliday.IsValid = false;
                 _context.SaveChanges();
                 return true;
             }

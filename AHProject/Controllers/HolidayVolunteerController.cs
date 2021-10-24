@@ -44,5 +44,18 @@ namespace AHProject.Controllers
                 throw;
             }
         }
+        [HttpGet("{schedulingHoliday}")]
+        public  ActionResult<List<HolidayVolunteerDTO>> GetVolunteersBySchedulingHoliday(int schedulingHoliday)
+        {
+            try
+            {
+                return Ok( _IholidayVolunteerBL.GetVolunteersBySchedulingHoliday(schedulingHoliday));
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+                throw;
+            }
+        }
     }
 }

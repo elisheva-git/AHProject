@@ -31,6 +31,19 @@ namespace AHProject.Controllers
                 return BadRequest();
             }
         }
+        [HttpGet]
+        public ActionResult< List<ProfessionalDTO> >GetProfessionals()
+        {
+            try
+            {
+                return Ok(_IProfessionalBL.GetProfessionals());
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+                throw;
+            }
+        }
 
     }
 }

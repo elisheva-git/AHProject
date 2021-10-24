@@ -48,5 +48,18 @@ namespace AHProject.DAL
                 throw e;
             }
         }
+
+        public List<HolidayVolunteer> GetVolunteersBySchedulingHoliday(int schedulingHoliday)
+        {
+            try
+            {
+                return _context.HolidayVolunteers.Where(s => s.IdSchedulingHoliday == schedulingHoliday).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
