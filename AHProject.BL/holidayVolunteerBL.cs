@@ -4,6 +4,7 @@ using AutoMapper;
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AHProject.BL
@@ -58,6 +59,19 @@ namespace AHProject.BL
                 throw;
             }
         }
+        public Dictionary<int, List<HolidayVolunteerDTO>> GetVolunteersBySettlement(int settlementId)
+        {
+            try
+            {
+                List<HolidayVolunteer> volunteers = _IHolidayVolunteerDAL.GetVolunteersBySettlement(settlementId);
+                List<HolidayVolunteerDTO> volunteerDTOs = _mapper.Map<List<HolidayVolunteer>, List<HolidayVolunteerDTO>>(volunteers);
+                return volunteerDTOs.GroupBy(s => s.IdVolunteer).ToDictionary(g => g.Key, g => g.ToList());
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
     }
 }

@@ -57,5 +57,38 @@ namespace AHProject.Controllers
                 throw;
             }
         }
+
+        //[HttpGet("[action]/{settlementId}")]
+        //public ActionResult<Dictionary<int, List<HolidayVolunteerDTO>>> GetVolunteersBySettlement(int settlementId)
+        //{
+        //    try
+        //    {
+        //        return Ok(_IholidayVolunteerBL.GetVolunteersBySettlement(settlementId));
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return BadRequest();
+        //        throw;
+        //    }
+        //}
+        [HttpGet("[action]/{settlementId}")]
+        public ActionResult<Dictionary<int, int>> GetVolunteersBySettlement(int settlementId)
+        {
+            try
+            {
+                Dictionary<int, int> d = new Dictionary<int, int>();
+                d.Add(4, 5);
+                d.Add(1, 5);
+                d.Add(2, 3);
+                d.Add(3, 2);
+                return d;
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+                throw;
+            }
+        }
+       
     }
 }

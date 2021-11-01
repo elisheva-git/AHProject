@@ -61,5 +61,20 @@ namespace AHProject.DAL
                 throw;
             }
         }
+
+        public List<HolidayVolunteer> GetVolunteersBySettlement(int settlementId)
+        {
+            try
+            {
+                //return _context.HolidayVolunteers.Where(s => s.IdSettlement == settlementId).ToList().GroupBy(s => s.IdVolunteer).ToDictionary(g => g.Key, g => g.ToList());
+                return _context.HolidayVolunteers.Where(s => s.IdSettlement == settlementId).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        
+        
     }
 }

@@ -81,8 +81,8 @@ namespace AHProject
             services.AddScoped<IProfessionalToSchedulingHolidayBL, ProfessionalToSchedulingHolidayBL>();
             services.AddScoped<IProfessionalToVolunteerBL, ProfessionalToVolunteerBL>();
             services.AddScoped<IOptionalSettlementToHolidayBL, OptionalSettlementToHolidayBL>();
-
-
+            services.AddScoped<ISendingEmailBL, SendingEmailBL>();
+            services.AddScoped<ISendingEmailDAL, SendingEmailDAL>();
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
         }
