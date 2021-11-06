@@ -62,19 +62,54 @@ namespace AHProject.DAL
             }
         }
 
-        public List<HolidayVolunteer> GetVolunteersBySettlement(int settlementId)
+        public List<HolidayVolunteer> GetVolunteersFromHistory(int settlementId,int schedulingId)
         {
             try
             {
-                //return _context.HolidayVolunteers.Where(s => s.IdSettlement == settlementId).ToList().GroupBy(s => s.IdVolunteer).ToDictionary(g => g.Key, g => g.ToList());
-                return _context.HolidayVolunteers.Where(s => s.IdSettlement == settlementId).ToList();
+                List<HolidayVolunteer> holidayVolunteers=  _context.HolidayVolunteers.Where(hv => hv.IdSchedulingHoliday == schedulingId).ToList();
+                List<HolidayVolunteer> volunteersBySettlement= _context.HolidayVolunteers.Where(s => s.IdSettlement == settlementId && s.IdSchedulingHoliday!=schedulingId).ToList(); ;
+                return holidayVolunteers.Where(hv => volunteersBySettlement.FirstOrDefault(v => v.IdVolunteer == hv.IdVolunteer) != default).ToList();
             }
             catch (Exception)
             {
                 throw;
             }
         }
-        
-        
+
+        public void saveVolunteerToSettlement(HolidayVolunteer holidayVolunteer,int settlement)
+        {
+            try
+            {
+                _context.HolidayVolunteers.Find(holidayVolunteer).IdSettlement = settlement;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<HolidayVolunteer> GetBusyVolunteers(int schedulingId, int settlement)
+        {
+            try
+            {
+                return _context.HolidayVolunteers.Where(hv => hv.IdSchedulingHoliday == schedulingId && hv.IdSettlement != null && hv.IdSettlement != settlement).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<HolidayVolunteer> GetVolunteersToSettlements(int schedulingId, int settlement)
+        {
+            try
+            {
+                return _context.HolidayVolunteers.Where(hv => hv.IdSchedulingHoliday == schedulingId &&  hv.IdSettlement == settlement).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

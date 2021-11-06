@@ -15,6 +15,7 @@ namespace DTO
         public string AdditionalNeeds { get; set; }
         public List<int> Professionals { get; set; }
         public SettlementDTO Settlement { get; set; }
+        public PrayerTextDTO PrayerText { get; set; }
 
         //public virtual ExperienceOptional IdExperienceNavigation { get; set; }
         //public virtual PrayerText IdPrayerNavigation { get; set; }

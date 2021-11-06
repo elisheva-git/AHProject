@@ -7,7 +7,7 @@ namespace AHProject.DAL
     {
         public bool AddSettlementHoliday(SettlementHoliday settlementHoliday);
         public List<SettlementHoliday> GetSettlementsBySchedulingHoliday(int schedulingHoliday);
-
+        public SettlementHoliday GetSettlementHoliday(int schedulingHoliday, int settlement);
 
     }
 }

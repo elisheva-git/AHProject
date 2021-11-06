@@ -8,6 +8,8 @@ namespace AHProject.BL
         public bool AddHolidayVolunteer(HolidayVolunteerDTO volunteerHoliday);
         public bool DeleteHolidayVolunteer(int idVolunteer, int idSchedulingHoliday);
         public List<HolidayVolunteerDTO> GetVolunteersBySchedulingHoliday(int schedulingHoliday);
-        public Dictionary<int, List<HolidayVolunteerDTO>> GetVolunteersBySettlement(int settlementId);
+        public List<HolidayVolunteerDTO> GetVolunteersBySettlement(int settlementId, int schedulingId);
+        public void saveVolunteerToSettlement(HolidayVolunteerDTO holidayVolunteer, int settlement);
+        public List<List<HolidayVolunteerDTO>> GetVolunteersToScheduling(int settlementId, int schedulingId);
     }
 }

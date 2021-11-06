@@ -38,9 +38,11 @@ namespace AHProject.BL
              src.IdProfessional
             );
             CreateMap<HolidayVolunteer, HolidayVolunteerDTO>().ForMember(dest => dest.Professionals, src => src.MapFrom(v => v.ProfessionalToVolunteers))
-                .ForMember(dest=>dest.Volunteer,src=>src.MapFrom(v=>v.IdVolunteerNavigation));
+                .ForMember(dest => dest.Volunteer, src => src.MapFrom(v => v.IdVolunteerNavigation))
+                .ForMember(dest => dest.PrayerText, src => src.MapFrom(v => v.IdPrayerNavigation));
             CreateMap<HolidayVolunteerDTO, HolidayVolunteer>().ForMember(dest => dest.ProfessionalToVolunteers, src => src.MapFrom(v => v.Professionals))
-                .ForMember(dest => dest.IdVolunteerNavigation, src => src.MapFrom(v => v.Volunteer)); ;
+                .ForMember(dest => dest.IdVolunteerNavigation, src => src.MapFrom(v => v.Volunteer))
+                .ForMember(dest=>dest.IdPrayerNavigation,src=>src.MapFrom(v=>v.PrayerText)); 
 
             CreateMap<int, ProfessionalToSchedulingHoliday>().ConvertUsing((src, dest) =>
             new ProfessionalToSchedulingHoliday { IdProfessional = src }
@@ -49,9 +51,11 @@ namespace AHProject.BL
             src.IdProfessional
             );
             CreateMap<SettlementHoliday, SettlementHolidayDTO>().ForMember(dest => dest.Professionals, src => src.MapFrom(s => s.ProfessionalToSchedulingHolidays))
-                .ForMember(dest=>dest.Settlement,src=>src.MapFrom(s=>s.IdSettlementNavigation));
+                .ForMember(dest=>dest.Settlement,src=>src.MapFrom(s=>s.IdSettlementNavigation))
+                .ForMember(dest=>dest.PrayerText,src=>src.MapFrom(p=>p.IdPrayerNavigation));
             CreateMap< SettlementHolidayDTO,SettlementHoliday > ().ForMember(dest => dest.ProfessionalToSchedulingHolidays, src => src.MapFrom(s => s.Professionals))
-                .ForMember(dest => dest.IdSettlementNavigation, src => src.MapFrom(s => s.Settlement)); ;
+                .ForMember(dest => dest.IdSettlementNavigation, src => src.MapFrom(s => s.Settlement))
+                .ForMember(dest=>dest.IdPrayerNavigation,src=>src.MapFrom(s=>s.PrayerText)); 
 
             //CreateMap<SettlementHoliday, SettlementHolidayDTO>();
             //CreateMap<SettlementHolidayDTO, SettlementHoliday > ();

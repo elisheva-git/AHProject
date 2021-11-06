@@ -44,5 +44,17 @@ namespace AHProject.DAL
                 throw;
             }
         }
+        public SettlementHoliday GetSettlementHoliday(int schedulingHoliday,int settlement)
+        {
+            try
+            {
+                return _context.SettlementHolidays.First(s => s.IdSchedulingHoliday == schedulingHoliday && s.IdSettlement == settlement);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

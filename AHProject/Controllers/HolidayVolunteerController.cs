@@ -58,30 +58,12 @@ namespace AHProject.Controllers
             }
         }
 
-        //[HttpGet("[action]/{settlementId}")]
-        //public ActionResult<Dictionary<int, List<HolidayVolunteerDTO>>> GetVolunteersBySettlement(int settlementId)
-        //{
-        //    try
-        //    {
-        //        return Ok(_IholidayVolunteerBL.GetVolunteersBySettlement(settlementId));
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return BadRequest();
-        //        throw;
-        //    }
-        //}
-        [HttpGet("[action]/{settlementId}")]
-        public ActionResult<Dictionary<int, int>> GetVolunteersBySettlement(int settlementId)
+        [HttpGet("[action]/{settlementId}/{schedulingId}")]
+        public ActionResult< List<HolidayVolunteerDTO>> GetVolunteersBySettlement(int settlementId, int schedulingId)
         {
             try
             {
-                Dictionary<int, int> d = new Dictionary<int, int>();
-                d.Add(4, 5);
-                d.Add(1, 5);
-                d.Add(2, 3);
-                d.Add(3, 2);
-                return d;
+                return Ok(_IholidayVolunteerBL.GetVolunteersBySettlement(settlementId,schedulingId));
             }
             catch (Exception)
             {
@@ -89,6 +71,35 @@ namespace AHProject.Controllers
                 throw;
             }
         }
-       
+
+        [HttpPost("[action]/{settlement}")]
+        public ActionResult<bool> saveVolunteerToSettlement( int settlement, HolidayVolunteerDTO holidayVolunteer)
+        {
+            try
+            {
+                _IholidayVolunteerBL.saveVolunteerToSettlement(holidayVolunteer, settlement);
+                return Ok(true);
+            }
+            catch (Exception)
+            {
+
+                throw;
+                return BadRequest(false);
+            }
+        }
+        [HttpGet("[action]/{settlementId}/{schedulingId}")]
+        public ActionResult<List<List<HolidayVolunteerDTO>>> GetVolunteersToScheduling(int settlementId, int schedulingId)
+        {
+            try
+            {
+                return Ok( _IholidayVolunteerBL.GetVolunteersToScheduling(settlementId, schedulingId));
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+                throw;
+            }
+        }
+
     }
 }
