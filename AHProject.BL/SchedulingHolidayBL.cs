@@ -4,6 +4,7 @@ using AutoMapper;
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AHProject.BL
@@ -60,6 +61,17 @@ namespace AHProject.BL
                 throw;
             }
         }
+        public bool CloseScheduling(int idSchedulingHoliday)
+        {
+            try
+            {
+                return _ISchedulingHolidayDAL.CloseScheduling(idSchedulingHoliday);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
     }
 }

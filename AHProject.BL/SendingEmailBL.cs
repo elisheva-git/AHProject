@@ -11,17 +11,17 @@ namespace AHProject.BL
     {
         MailMessage mail;
         SmtpClient smtp;
-        IHolidayVolunteerDAL _IHolidayVolunteerDAL;
-        public SendingEmailBL(IHolidayVolunteerDAL iHolidayVolunteerDAL)
+        ISchedulingHolidayDAL _ISchedulingHolidayDAL;
+        public SendingEmailBL(ISchedulingHolidayDAL ISchedulingHolidayDAL)
         {
-            _IHolidayVolunteerDAL = iHolidayVolunteerDAL;
+            _ISchedulingHolidayDAL = ISchedulingHolidayDAL;
             // Smtp יצירת אוביקט 
             smtp = new SmtpClient();
             //הגדרת השרת של גוגל
             smtp.Host = "smtp.gmail.com";
             //הגדרת פרטי הכניסה לחשבון גימייל
             smtp.Credentials = new System.Net.NetworkCredential(
-            "e0533169098@gmail.com", "0533124268");
+            "ah.holidayactivities@gmail.com", "ah123456789");
             //אפשור SSL (חובה(
             smtp.EnableSsl = true;
         }
@@ -29,7 +29,7 @@ namespace AHProject.BL
         {
             try
             {
-                List<HolidayVolunteer> holidayVolunteers = _IHolidayVolunteerDAL.GetVolunteersBySchedulingHoliday(schedulingHoliday, true);
+                List<HolidayVolunteer> holidayVolunteers = _ISchedulingHolidayDAL.GetVolunteers(schedulingHoliday);
                 holidayVolunteers.ForEach(hv =>
                     {
                         mail = new MailMessage();
@@ -54,6 +54,43 @@ namespace AHProject.BL
                             //txtMessage.Text = ex.ToString();
                         }
                     });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void sendToContactPersonOfSettlements(int schedulingHoliday)
+        {
+            try
+            {
+                List<SettlementHoliday> settlementHolidays = _ISchedulingHolidayDAL.GetSettlements(schedulingHoliday);
+                settlementHolidays.ForEach(s =>
+                {
+                    mail = new MailMessage();
+                    //למי לשלוח (יש אפשרות להוסיף כמה נמענים) 
+                    mail.To.Add(s.IdSettlementNavigation.IdContactPerNavigation.Gmail);
+                    //כתובת מייל לשלוח ממנה
+                    mail.From = new MailAddress("e0533169098@gmail.com");
+                    // נושא ההודעה
+                    mail.Subject = "שיבוץ לחג";
+                    //תוכן ההודעה ב- HTML
+                    mail.Body = "hi";
+                    //הגדרת תוכן ההודעה ל - HTML 
+                    mail.IsBodyHtml = true;
+                    try
+                    {
+                        //שליחת ההודעה
+                        smtp.Send(mail);
+                    }
+                    catch (Exception ex)
+                    {
+                        //תפיסה וטיפול בשגיאות
+                        //txtMessage.Text = ex.ToString();
+                    }
+                });
             }
             catch (Exception)
             {

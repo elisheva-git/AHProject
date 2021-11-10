@@ -49,15 +49,11 @@ namespace AHProject.DAL
             }
         }
 
-        public List<HolidayVolunteer> GetVolunteersBySchedulingHoliday(int schedulingHoliday,bool isBusy=false)
+        public List<HolidayVolunteer> GetVolunteersBySchedulingHoliday(int schedulingHoliday)
         {
             try
             {
                 List<HolidayVolunteer> holidayVolunteers= _context.HolidayVolunteers.Where(s => s.IdSchedulingHoliday == schedulingHoliday).ToList();
-                if (isBusy)
-                {
-                    return holidayVolunteers.Where(hv => hv.IdSettlement != null).ToList();
-                }
                 return holidayVolunteers;
             }
             catch (Exception)
