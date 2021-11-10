@@ -83,6 +83,7 @@ namespace AHProject
             services.AddScoped<IOptionalSettlementToHolidayBL, OptionalSettlementToHolidayBL>();
             services.AddScoped<ISendingEmailBL, SendingEmailBL>();
             services.AddScoped<ISendingEmailDAL, SendingEmailDAL>();
+            services.AddScoped<IHistoryBL, HistoryBL>();
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
         }

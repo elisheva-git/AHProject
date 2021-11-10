@@ -87,6 +87,10 @@ namespace AHProject.BL
                 ForPath(dest=>dest.IdExperienceNavigation.Icon,src=>src.MapFrom(i=>i.Icon));
 
 
+            CreateMap<HolidayVolunteer, HistoryDTO>().ForMember(dest => dest.Volunteer, src => src.MapFrom(v => v))
+                .ForMember(dest => dest.Settlement, src => src.MapFrom(s => s.IdS))
+                .ForMember(dest => dest.Scheduling, src => src.MapFrom(s => s.IdSchedulingHolidayNavigation));
+
         }
     }
 }
