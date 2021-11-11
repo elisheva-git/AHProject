@@ -94,7 +94,7 @@ namespace AHProject.BL
                 //volunteers that they were in the settlement in the history
                 List<HolidayVolunteer> volunteersFromHistory = _IHolidayVolunteerDAL.GetVolunteersFromHistory(settlementId, schedulingId);
                 //volunteers that they were not in the settlement in the history
-                List<HolidayVolunteer> holidayVolunteers = _IHolidayVolunteerDAL.GetVolunteersBySchedulingHoliday(schedulingId);
+                List<HolidayVolunteer> holidayVolunteers = _IHolidayVolunteerDAL.GetVolunteersBySchedulingHoliday(schedulingId).Where(v=>v.IdSettlement==null).ToList();
                 //volunteers that already choosen to this settlement to this scheduling
                 List<HolidayVolunteer> volunteersAlreadyToThisSettlements = _IHolidayVolunteerDAL.GetVolunteersToSettlements(schedulingId,settlementId);
                 //volunteers that already choosen to diffrent settlement to this scheduling

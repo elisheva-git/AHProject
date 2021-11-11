@@ -68,9 +68,9 @@ namespace AHProject.DAL
         {
             try
             {
-                List<HolidayVolunteer> holidayVolunteers=  _context.HolidayVolunteers.Where(hv => hv.IdSchedulingHoliday == schedulingId).ToList();
-                List<HolidayVolunteer> volunteersBySettlement= _context.HolidayVolunteers.Where(s => s.IdSettlement == settlementId && s.IdSchedulingHoliday!=schedulingId).ToList(); ;
-                return holidayVolunteers.Where(hv => volunteersBySettlement.FirstOrDefault(v => v.IdVolunteer == hv.IdVolunteer) != default).ToList();
+                List<HolidayVolunteer> holidayVolunteers=  _context.HolidayVolunteers.Where(hv => hv.IdSchedulingHoliday == schedulingId &&hv.IdSettlement==null).ToList();
+                List<HolidayVolunteer> volunteersBySettlement= _context.HolidayVolunteers.Where(s => s.IdSettlement == settlementId && s.IdSchedulingHoliday!=schedulingId).ToList(); 
+                return holidayVolunteers.Where(hv => volunteersBySettlement.FirstOrDefault(v => v.IdVolunteer == hv.IdVolunteer) != default ).ToList();
             }
             catch (Exception)
             {
