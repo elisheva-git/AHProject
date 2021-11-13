@@ -72,6 +72,19 @@ namespace AHProject.Controllers
                 return BadRequest();
             }
         }
+      
+        [HttpPut("[action]/{idSchedulingHoliday}")]
+        public bool CloseScheduling(int idSchedulingHoliday)
+        {
+            try
+            {
+                return _ISchedulingHolidayBL.CloseScheduling(idSchedulingHoliday);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
     }
 }

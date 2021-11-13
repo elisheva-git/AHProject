@@ -12,6 +12,6 @@ namespace AHProject.DAL
         public void saveVolunteerToSettlement(HolidayVolunteer holidayVolunteer, int settlement);
         public List<HolidayVolunteer> GetBusyVolunteers(int schedulingId, int settlement);
         public List<HolidayVolunteer> GetVolunteersToSettlements(int schedulingId, int settlement);
-
+        public List<HolidayVolunteer> GetHolidayVolunteers();
     }
 }

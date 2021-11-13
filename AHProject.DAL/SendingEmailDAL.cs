@@ -25,7 +25,7 @@ namespace AHProject.DAL
             //אפשור SSL (חובה(
             smtp.EnableSsl = true;
         }
-        public void send(int schedulingHoliday)
+        public void sendToVolunteers(int schedulingHoliday)
         {
             try
             {

@@ -9,6 +9,8 @@ namespace AHProject.DAL
         public List<SchedulingHoliday> GetSchedulingHolidays();
         public bool DeleteSchedulingHoliday(int idSchedulingHoliday);
         public SchedulingHoliday GetSchedulingHolidayById(int idSchedulingHoliday);
-
+        public List<SettlementHoliday> GetSettlements(int idSchedulingHoliday);
+        public List<HolidayVolunteer> GetVolunteers(int idSchedulingHoliday);
+        public bool CloseScheduling(int idSchedulingHoliday);
     }
 }

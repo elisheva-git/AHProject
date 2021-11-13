@@ -53,7 +53,8 @@ namespace AHProject.DAL
         {
             try
             {
-                return _context.HolidayVolunteers.Where(s => s.IdSchedulingHoliday == schedulingHoliday).ToList();
+                List<HolidayVolunteer> holidayVolunteers= _context.HolidayVolunteers.Where(s => s.IdSchedulingHoliday == schedulingHoliday).ToList();
+                return holidayVolunteers;
             }
             catch (Exception)
             {
@@ -62,13 +63,14 @@ namespace AHProject.DAL
             }
         }
 
+
         public List<HolidayVolunteer> GetVolunteersFromHistory(int settlementId,int schedulingId)
         {
             try
             {
-                List<HolidayVolunteer> holidayVolunteers=  _context.HolidayVolunteers.Where(hv => hv.IdSchedulingHoliday == schedulingId).ToList();
-                List<HolidayVolunteer> volunteersBySettlement= _context.HolidayVolunteers.Where(s => s.IdSettlement == settlementId && s.IdSchedulingHoliday!=schedulingId).ToList(); ;
-                return holidayVolunteers.Where(hv => volunteersBySettlement.FirstOrDefault(v => v.IdVolunteer == hv.IdVolunteer) != default).ToList();
+                List<HolidayVolunteer> holidayVolunteers=  _context.HolidayVolunteers.Where(hv => hv.IdSchedulingHoliday == schedulingId &&hv.IdSettlement==null).ToList();
+                List<HolidayVolunteer> volunteersBySettlement= _context.HolidayVolunteers.Where(s => s.IdSettlement == settlementId && s.IdSchedulingHoliday!=schedulingId).ToList(); 
+                return holidayVolunteers.Where(hv => volunteersBySettlement.FirstOrDefault(v => v.IdVolunteer == hv.IdVolunteer) != default ).ToList();
             }
             catch (Exception)
             {
@@ -80,9 +82,11 @@ namespace AHProject.DAL
         {
             try
             {
-                _context.HolidayVolunteers.Find(holidayVolunteer).IdSettlement = settlement;
+               HolidayVolunteer holidayVolunteer1=  _context.HolidayVolunteers.First(hv=>hv.IdSchedulingHoliday==holidayVolunteer.IdSchedulingHoliday&&hv.IdVolunteer==holidayVolunteer.IdVolunteer);
+                holidayVolunteer1.IdSettlement = settlement;
+                _context.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 throw;
             }
@@ -105,6 +109,18 @@ namespace AHProject.DAL
             try
             {
                 return _context.HolidayVolunteers.Where(hv => hv.IdSchedulingHoliday == schedulingId &&  hv.IdSettlement == settlement).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<HolidayVolunteer> GetHolidayVolunteers()
+        {
+            try
+            {
+                return _context.HolidayVolunteers.Where(hv=>hv.IdSettlement!=null).ToList();
             }
             catch (Exception)
             {

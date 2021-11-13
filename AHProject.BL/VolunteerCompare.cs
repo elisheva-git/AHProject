@@ -35,6 +35,14 @@ namespace AHProject.BL
             {
                 return -1;
             }
+            if (x.IdPrayer == settlement.IdPrayer && y.IdPrayer!=settlement.IdPrayer)
+            {
+                return -1;
+            }
+            if(y.IdPrayer == settlement.IdPrayer)
+            {
+                return 1;
+            }
             return 0;
             throw new NotImplementedException();
         }
