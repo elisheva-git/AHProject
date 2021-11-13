@@ -37,5 +37,10 @@ namespace AHProject.BL
             return _IHolidaysDAL.DeleteHolidayDAL(id);
 
         }
+        //public List<ProfessionalDTO> GetProfessionalsHolidayBL(int id)
+        //{
+        //    return _IHolidaysDAL.GetProfessionalsHolidayDAL(id);
+        //}
+
     }
 }
