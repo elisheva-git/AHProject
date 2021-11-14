@@ -57,5 +57,10 @@ namespace AHProject.DAL
             return _context.Holidays.First(h => h.IdHoliday == id).ProfessionalHolidays.ToList()
                 .Select(p => p.IdProfessionalNavigation).ToList();
         }
+
+        public List<Holiday> GetHolidays()
+        {
+            return _context.Holidays.ToList();
+        }
     }
 }

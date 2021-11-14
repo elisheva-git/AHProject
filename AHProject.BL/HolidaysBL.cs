@@ -17,11 +17,11 @@ namespace AHProject.BL
             this._IHolidaysDAL = IHolidaysDAL;
             this._mapper = mapper;
         }
-        public List<HolidaysDTO> GetHolidaysBL()
-        {
-            List<Holiday> holidays = _IHolidaysDAL.GetHolidaysDAL();
-            return _mapper.Map<List<Holiday>, List<HolidaysDTO>>(holidays);
-        }
+        //public List<HolidaysDTO> GetHolidaysBL()
+        //{
+        //    List<Holiday> holidays = _IHolidaysDAL.GetHolidaysDAL();
+        //    return _mapper.Map<List<Holiday>, List<HolidaysDTO>>(holidays);
+        //}
         public HolidaysDTO GetHolidayByIdBL(int id)
         {
             Holiday holiday = _IHolidaysDAL.GetHolidayByIdDAL(id);
@@ -41,6 +41,18 @@ namespace AHProject.BL
         //{
         //    return _IHolidaysDAL.GetProfessionalsHolidayDAL(id);
         //}
+        public List<HolidaysDTO> GetHolidays()
+        {
+            try
+            {
+                List<Holiday> holidays = _IHolidaysDAL.GetHolidays();
+                return _mapper.Map<List<Holiday>, List<HolidaysDTO>>(holidays);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
     }
 }

@@ -16,9 +16,9 @@ namespace DTO
 
         public int IdHoliday { get; set; }
         public string DescriptionHoliday { get; set; }
-       // public ProfessionalDTO Professionals { get; set; }
+        public List< ProfessionalDTO> Professionals { get; set; }
 
-        public virtual ICollection<ProfessionalHoliday> ProfessionalHolidays { get; set; }
+        //public virtual ICollection<ProfessionalHoliday> ProfessionalHolidays { get; set; }
         //public virtual ICollection<SchedulingHoliday> SchedulingHolidays { get; set; }
         //public virtual ICollection<SettlementHoliday1> SettlementHoliday1s { get; set; }
     }

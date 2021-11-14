@@ -22,7 +22,7 @@ namespace AHProject.Controllers
         [HttpGet]
         public ActionResult<List<HolidaysDTO>> GetHolidays()
         {
-            return Ok(_IHolidaysBL.GetHolidaysBL());
+            return Ok(_IHolidaysBL.GetHolidays());
         }
         [HttpGet("{id}")]
         public ActionResult<HolidaysDTO> GetHolidayBy(int id)

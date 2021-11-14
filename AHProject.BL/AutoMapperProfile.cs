@@ -17,7 +17,8 @@ namespace AHProject.BL
             CreateMap<PrayerText, PrayerTextDTO>();
             CreateMap <PrayerTextDTO, PrayerText> ();
 
-            CreateMap<Holiday, HolidaysDTO>().ForMember(dest => dest.ProfessionalHolidays, src => src.MapFrom(d => d.ProfessionalHolidays)).ForMember(dest => dest.ProfessionalHolidays, src => src.MapFrom(s => s.ProfessionalHolidays));
+
+            CreateMap<Holiday, HolidaysDTO>().ForMember(dest => dest.Professionals, src => src.MapFrom(d => d.ProfessionalHolidays)).ForMember(dest => dest.Professionals, src => src.MapFrom(s => s.ProfessionalHolidays.Select(p=>p.IdProfessionalNavigation).ToList()));
 
 
             CreateMap<Settlement, SettlementDTO>().ForMember(dest => dest.ContactPer, src => src.MapFrom(d => d.IdContactPerNavigation)).ForMember(dest=>dest.AreaName,src=>src.MapFrom(s=>s.IdAreaNavigation.AreaName));
@@ -28,8 +29,8 @@ namespace AHProject.BL
             CreateMap <VolunteersDTO, Volunteer> ();
             CreateMap <ExperienceOptional, ExperienceOptionalDTO> ();
             CreateMap <ExperienceOptionalDTO, ExperienceOptional > ();
-            CreateMap <Holiday, HolidaysDTO> ();
-            CreateMap <HolidaysDTO, Holiday > ();
+            //CreateMap <Holiday, HolidaysDTO> ();
+            //CreateMap <HolidaysDTO, Holiday > ();
             //CreateMap<SchedulingHolidayDTO, SchedulingHoliday>().ForPath(dest=>dest.IdHolidayNavigation.DescriptionHoliday,src=>src.MapFrom(s=>s.Descripation));
             CreateMap<SchedulingHolidayDTO, SchedulingHoliday>();
 
