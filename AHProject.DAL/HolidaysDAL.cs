@@ -27,10 +27,10 @@ namespace AHProject.DAL
         //        throw;
         //    }
         //}
-        public List<Holiday> GetHolidaysDAL()
-        {
-            return _context.Holidays.ToList();
-        }
+        //public List<Holiday> GetHolidaysDAL()
+        //{
+        //    return _context.Holidays.ToList();
+        //}
         public Holiday GetHolidayByIdDAL(int id)
         {
             return _context.Holidays.Where(h => h.IdHoliday == id).FirstOrDefault();

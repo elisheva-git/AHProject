@@ -36,12 +36,11 @@ namespace AHProject.Controllers
             return _IHolidaysBL.DeleteHolidayBL(id);
         }
 
-        [HttpGet("[action]")]
-        public ActionResult<HolidaysDTO> GetProfessionalsHoliday(int id)
-        {
-            return Ok(_IHolidaysBL.GetProfessionalsHolidayBL(id));
-        }
-
+        //[HttpGet("[action]")]
+        //public ActionResult<HolidaysDTO> GetProfessionalsHoliday(int id)
+        //{
+        //    return Ok(_IHolidaysBL.GetProfessionalsHolidayBL(id));
+        //}
 
 
     }
