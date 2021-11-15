@@ -66,5 +66,17 @@ namespace AHProject.BL
                 throw;
             }
         }
+        public bool IsPlaced(int volunteer)
+        {
+            try
+            {
+                return _IVolunteersDAL.IsPlaced(volunteer);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

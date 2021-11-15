@@ -20,10 +20,26 @@ namespace AHProject.DAL
         }
         public bool DeleteSettlement(int idSettlement)
         {
-            Settlement SettlementToDelete = _context.Settlements.FirstOrDefault(s => s.IdSettlement == idSettlement);
+            Settlement settlementToDelete = _context.Settlements.FirstOrDefault(s => s.IdSettlement == idSettlement);
             try
             {
-                _context.Remove(SettlementToDelete);
+                if (settlementToDelete.IsActive == true)
+                {
+
+                    settlementToDelete.OptionalSettlementToHolidays.Where(s => s.IdSchedulingHolidayNavigation.IsOpen == true).ToList().ForEach(set =>
+                    {
+                        _context.OptionalSettlementToHolidays.Remove(set);
+                        _context.SaveChanges();
+                    });
+                    settlementToDelete.SettlementHolidays.Where(s=> s.IdSchedulingHolidayNavigation.IsOpen == true).ToList().ForEach(s =>
+                    {
+                        _context.SettlementHolidays.Remove(s);
+                        _context.SaveChanges();
+                    });
+                }
+                settlementToDelete.IsActive = !settlementToDelete.IsActive;
+
+                _context.Update(settlementToDelete);
                 _context.SaveChanges();
                 return true;
             }
@@ -33,6 +49,7 @@ namespace AHProject.DAL
                 throw e;
             }
         }
+       
 
         public bool AddSettlement(Settlement settlement)
         {
@@ -74,6 +91,24 @@ namespace AHProject.DAL
                 throw e;
             }
         }
+        public bool IsPlaced(int settlement)
+        {
+            try
+            {
+                Settlement settlement1 = _context.Settlements.First(s => s.IdSettlement == settlement);
+                SettlementHoliday one= settlement1.SettlementHolidays.FirstOrDefault(s => s.IdSchedulingHolidayNavigation.IsOpen == true);
+                OptionalSettlementToHoliday two= settlement1.OptionalSettlementToHolidays.FirstOrDefault(s => s.IdSchedulingHolidayNavigation.IsOpen == true);
+                if(one!=default || two != default)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
     }
 }

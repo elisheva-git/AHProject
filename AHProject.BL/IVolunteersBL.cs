@@ -10,6 +10,6 @@ namespace AHProject.BL
         public VolunteersDTO GetVolunteerById(int id);
         public bool Updateolunteer(VolunteersDTO volunteer);
         public bool ChangeStatus(VolunteersDTO volunteerToChange);
-
+        public bool IsPlaced(int volunteer);
     }
 }

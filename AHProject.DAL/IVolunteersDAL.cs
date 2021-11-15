@@ -12,7 +12,7 @@ namespace AHProject.DAL
         public Volunteer GetVolunteerById(int id);
         public bool Updateolunteer(Volunteer volunteer);
         public bool ChangeStatus(Volunteer volunteerToChange);
-
+        public bool IsPlaced(int volunteer);
 
 
 

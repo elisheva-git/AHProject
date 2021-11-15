@@ -83,7 +83,19 @@ namespace AHProject.Controllers
                 throw;
             }
         }
-     
+        [HttpGet("[action]/{volunteer}")]
+        public bool IsPlaced(int volunteer)
+        {
+            try
+            {
+                return _volunteersBL.IsPlaced(volunteer);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
     }
 }

@@ -62,5 +62,19 @@ namespace AHProject.Controllers
             return Ok(_ISettlementBL.GetSettlementById(id));
         }
 
+        [HttpGet("[action]/{settlement}")]
+        public bool IsPlaced(int settlement)
+        {
+            try
+            {
+                return _ISettlementBL.IsPlaced(settlement);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

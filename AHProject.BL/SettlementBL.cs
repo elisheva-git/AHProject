@@ -57,6 +57,17 @@ namespace AHProject.BL
                 throw e;
             }
         }
+        public bool IsPlaced(int settlement)
+        {
+            try
+            {
+                return _ISettlementDAL.IsPlaced(settlement);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
     }
 }

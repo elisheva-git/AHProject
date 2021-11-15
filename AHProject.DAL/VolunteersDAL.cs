@@ -64,13 +64,46 @@ namespace AHProject.DAL
             try
             {
                 Volunteer volunteer = _context.Volunteers.FirstOrDefault(v => v.IdVolunteer == volunteerToChange.IdVolunteer);
+                if (volunteer.IsActive == true)
+                {
+                    _context.OptionalVolunteerToHolidays.Where(v => v.IdVolunteer == volunteer.IdVolunteer && v.IdSchedulingHolidayNavigation.IsOpen == true).ToList().ForEach(v =>
+                          {
+                              _context.OptionalVolunteerToHolidays.Remove(v);
+                              _context.SaveChanges();
+                          });
+                    _context.HolidayVolunteers.Where(v => v.IdVolunteer == volunteer.IdVolunteer && v.IdSchedulingHolidayNavigation.IsOpen == true).ToList().ForEach(v =>
+                    {
+                        _context.HolidayVolunteers.Remove(v);
+                        _context.SaveChanges();
+                    });
+                }
                 volunteer.IsActive = !volunteer.IsActive;
+
                 _context.Update(volunteer);
                 _context.SaveChanges();
                 return true;
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+        public bool IsPlaced(int volunteer)
+        {
+            try
+            {
+                Volunteer v = _context.Volunteers.First(s => s.IdVolunteer == volunteer);
+                HolidayVolunteer one = v.HolidayVolunteers.FirstOrDefault(vo=>vo.IdSchedulingHolidayNavigation.IsOpen==true);
+                OptionalVolunteerToHoliday two = v.OptionalVolunteerToHolidays.FirstOrDefault(s => s.IdSchedulingHolidayNavigation.IsOpen == true);
+                if (one != default || two != default)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

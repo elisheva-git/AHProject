@@ -10,5 +10,6 @@ namespace AHProject.DAL
         public bool DeleteSettlement(int idSettlement);
         public Settlement GetSettlementById(int id);
         public bool UpdateSettlement(Settlement settlement);
+        public bool IsPlaced(int settlement);
     }
 }
