@@ -202,7 +202,9 @@ namespace AHProject.DAL.Models
                 entity.HasKey(e => e.PasswordNumber)
                     .HasName("PK__Password__24C4D47EC8FFAF9E");
 
-                entity.Property(e => e.PasswordNumber).ValueGeneratedNever();
+                entity.Property(e => e.PasswordNumber)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<PrayerText>(entity =>

@@ -18,8 +18,8 @@ namespace AHProject.Controllers
         {
             this._IpasswordBL = IpasswordBL;
         }
-        [HttpPost]
-        public ActionResult<bool> checkPassword(PasswordsDTO pass)
+        [HttpGet("[action]/{pass}")]
+        public ActionResult<bool> checkPassword(string pass)
         {
             try
             {

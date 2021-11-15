@@ -4,7 +4,7 @@ namespace AHProject.DAL
 {
     public interface IPasswordsDAL
     {
-        public bool checkPassword(Password pass);
+        public bool checkPassword(string pass);
         
     }
 }

@@ -17,9 +17,9 @@ namespace AHProject.BL
             this._IPasswordsDAL = IPasswordsDAL;
             this._mapper = mapper;
         }
-        public bool checkPassword(PasswordsDTO pass)
+        public bool checkPassword(string pass)
         {
-            return _IPasswordsDAL.checkPassword(_mapper.Map<PasswordsDTO, Password>(pass));
+            return _IPasswordsDAL.checkPassword(pass);
         }
     }
 }

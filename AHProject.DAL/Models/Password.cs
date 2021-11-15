@@ -7,6 +7,6 @@ namespace AHProject.DAL.Models
 {
     public partial class Password
     {
-        public int PasswordNumber { get; set; }
+        public string PasswordNumber { get; set; }
     }
 }
