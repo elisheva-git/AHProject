@@ -50,7 +50,6 @@ namespace AHProject.DAL
             }
         }
        
-
         public bool AddSettlement(Settlement settlement)
         {
             try
@@ -96,9 +95,9 @@ namespace AHProject.DAL
             try
             {
                 Settlement settlement1 = _context.Settlements.First(s => s.IdSettlement == settlement);
-                SettlementHoliday one= settlement1.SettlementHolidays.FirstOrDefault(s => s.IdSchedulingHolidayNavigation.IsOpen == true);
+                //SettlementHoliday one= settlement1.SettlementHolidays.FirstOrDefault(s => s.IdSchedulingHolidayNavigation.IsOpen == true);
                 OptionalSettlementToHoliday two= settlement1.OptionalSettlementToHolidays.FirstOrDefault(s => s.IdSchedulingHolidayNavigation.IsOpen == true);
-                if(one!=default || two != default)
+                if(two != default)
                 {
                     return true;
                 }

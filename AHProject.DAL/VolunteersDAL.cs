@@ -93,9 +93,9 @@ namespace AHProject.DAL
             try
             {
                 Volunteer v = _context.Volunteers.First(s => s.IdVolunteer == volunteer);
-                HolidayVolunteer one = v.HolidayVolunteers.FirstOrDefault(vo=>vo.IdSchedulingHolidayNavigation.IsOpen==true);
+                //HolidayVolunteer one = v.HolidayVolunteers.FirstOrDefault(vo=>vo.IdSchedulingHolidayNavigation.IsOpen==true);
                 OptionalVolunteerToHoliday two = v.OptionalVolunteerToHolidays.FirstOrDefault(s => s.IdSchedulingHolidayNavigation.IsOpen == true);
-                if (one != default || two != default)
+                if (two != default)
                 {
                     return true;
                 }
