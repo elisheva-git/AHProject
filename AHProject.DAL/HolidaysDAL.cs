@@ -58,6 +58,11 @@ namespace AHProject.DAL
                 .Select(p => p.IdProfessionalNavigation).ToList();
         }
 
+        //public bool DeleteProfessionalHoliday(string prof)
+        //{
+        //    int idProf = _context.Professionals.First(p => p.DescriptionProfessional == prof).IdProfessional;
+        //    _context.ProfessionalHolidays.First(p=> p.IdProfessional == idProf).
+        //}
         public List<Holiday> GetHolidays()
         {
             return _context.Holidays.ToList();

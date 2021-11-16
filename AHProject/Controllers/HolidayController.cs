@@ -42,6 +42,12 @@ namespace AHProject.Controllers
         //    return Ok(_IHolidaysBL.GetProfessionalsHolidayBL(id));
         //}
 
+        //[HttpDelete("[action]/{prof}")]
+        //public ActionResult<bool> DeleteProfessionalHoliday(string prof)
+        //{
+        //    return
+        //}
+
 
     }
 }
