@@ -40,7 +40,9 @@ namespace AHProject.BL
                         // נושא ההודעה
                         mail.Subject = "שיבוץ לחג";
                         //תוכן ההודעה ב- HTML
-                        mail.Body = "hi";
+                        string body = "<h1>Hello</h1>";
+                        mail.Body = body;
+                        //mail.Body = "שלום וברכה ";
                         //הגדרת תוכן ההודעה ל - HTML 
                         mail.IsBodyHtml = true;
                         try

@@ -21,6 +21,27 @@ namespace AHProject.DAL
             }
             return false;
         }
+        public bool AddPassword(string pass)
+        {
+            if (pass!=null&&this._context.Passwords.FirstOrDefault(p => p.PasswordNumber == pass) == default)
+            {
+                this._context.Passwords.Add(new Password() { PasswordNumber = pass });
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+        public List<Password> GetPasswords()
+        {
+            try
+            {
+                return _context.Passwords.ToList();
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
     }
 }

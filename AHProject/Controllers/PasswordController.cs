@@ -32,5 +32,32 @@ namespace AHProject.Controllers
                 throw;
             }
         }
+        [HttpGet("[action]/{passw}")]
+        public ActionResult<bool> AddPassword(string passw)
+        {
+            try
+            {
+                return _IpasswordBL.AddPassword(passw);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet("[action]")]
+        public List<string> GetPasswords()
+        {
+            try
+            {
+                return _IpasswordBL.GetPasswords();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
