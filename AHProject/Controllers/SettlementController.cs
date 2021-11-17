@@ -34,7 +34,7 @@ namespace AHProject.Controllers
         }
 
         [HttpPut]
-        public ActionResult<bool> UpdateSettlement([FromBody] SettlementDTO settlementToUpdate)
+        public ActionResult<bool> UpdateSettlement(SettlementDTO settlementToUpdate)
         {
             try
             {

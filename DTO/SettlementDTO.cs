@@ -21,7 +21,8 @@ namespace DTO
         public int IdContactPer { get; set; }
         public ContactPersonDTO ContactPer { get; set; }
         public string AreaName { get; set; }
-        public bool isActive { get; set; }
+        public bool IsActive { get; set; }
+        public AreaDTO Area { get; set; }
 
 
 

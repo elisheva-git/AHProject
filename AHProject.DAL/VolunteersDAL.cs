@@ -37,8 +37,6 @@ namespace AHProject.DAL
         {
             try
             {
-                //Volunteer volunteerToUpdate = _context.Volunteers.SingleOrDefault(v => v.IdVolunteer == id);
-                //_context.Volunteers.Update(volunteerToUpdate);
                 _context.Volunteers.Update(volunteer);
                 _context.SaveChanges();
                 return true;

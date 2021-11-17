@@ -40,7 +40,8 @@ namespace AHProject.BL
                         // נושא ההודעה
                         mail.Subject = "שיבוץ לחג";
                         //תוכן ההודעה ב- HTML
-                        string body = "<h1>Hello</h1>";
+                        string body = hv.IdVolunteerNavigation.FirstName+" "+hv.IdVolunteerNavigation.LastName+" שלום וברכה"+"/n"+
+                        "הנך משובץ לישוב "+hv.IdS.IdSettlementNavigation.NameSettlement+" לחג "+hv.IdSchedulingHolidayNavigation.IdHolidayNavigation.DescriptionHoliday+"תודה רבה וחג שמח";
                         mail.Body = body;
                         //mail.Body = "שלום וברכה ";
                         //הגדרת תוכן ההודעה ל - HTML 
@@ -79,6 +80,8 @@ namespace AHProject.BL
                     // נושא ההודעה
                     mail.Subject = "שיבוץ לחג";
                     //תוכן ההודעה ב- HTML
+                    string body = s.IdSettlementNavigation.IdContactPerNavigation.FirstName + " " + s.IdSettlementNavigation.IdContactPerNavigation.LastName + " שלום וברכה" + "/n" +
+                       "הפעילים " + s.HolidayVolunteers + " לחג " + s.IdSchedulingHolidayNavigation.IdHolidayNavigation.DescriptionHoliday + "תודה רבה וחג שמח";
                     mail.Body = "hi";
                     //הגדרת תוכן ההודעה ל - HTML 
                     mail.IsBodyHtml = true;
