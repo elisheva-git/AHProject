@@ -25,5 +25,18 @@ namespace AHProject.DAL
                 throw;
             }
         }
+        public void AddPrayerText(PrayerText prayer)
+        {
+            try
+            {
+                _context.PrayerTexts.Add(prayer);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

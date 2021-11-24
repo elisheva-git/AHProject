@@ -16,9 +16,13 @@ namespace AHProject.BL
         }
         public int Compare([AllowNull] HolidayVolunteer x, [AllowNull] HolidayVolunteer y)
         {
-            List<Professional> professionalsSettlement = settlement.ProfessionalToSchedulingHolidays.ToList().Select(p => p.IdProfessionalNavigation).ToList();
-            int countProffesionalsX = x.ProfessionalToVolunteers.Count(p => professionalsSettlement.Contains(p.IdProfessionalNavigation));
-            int countProffesionalsY = y.ProfessionalToVolunteers.Count(p => professionalsSettlement.Contains(p.IdProfessionalNavigation));
+            List<Professional> professionalsSettlement = settlement.ProfessionalToSchedulingHolidays.ToList()
+                .Select(p => p.IdProfessionalNavigation).ToList();
+            int countProffesionalsX = x.ProfessionalToVolunteers.Count(p => professionalsSettlement
+            .Contains(p.IdProfessionalNavigation));
+            int countProffesionalsY = y.ProfessionalToVolunteers.Count(p => professionalsSettlement
+            .Contains(p.IdProfessionalNavigation));
+            //check the count of Suitable Proffesionals
             if (countProffesionalsX > countProffesionalsY)
             {
                 return -1;
@@ -27,6 +31,7 @@ namespace AHProject.BL
             {
                 return 1;
             }
+            //check Match the number of joiners
             if (x.Countjoiners == settlement.AmountPeopleConsumed && y.Countjoiners != settlement.AmountPeopleConsumed)
             {
                 return 1;
@@ -35,6 +40,7 @@ namespace AHProject.BL
             {
                 return -1;
             }
+            //check Match the prayerText
             if (x.IdPrayer == settlement.IdPrayer && y.IdPrayer!=settlement.IdPrayer)
             {
                 return -1;

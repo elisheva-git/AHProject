@@ -15,7 +15,6 @@ namespace AHProject.BL
         public SendingEmailBL(ISchedulingHolidayDAL ISchedulingHolidayDAL)
         {
             _ISchedulingHolidayDAL = ISchedulingHolidayDAL;
-            // Smtp יצירת אוביקט 
             smtp = new SmtpClient();
             //הגדרת השרת של גוגל
             smtp.Host = "smtp.gmail.com";
@@ -73,7 +72,7 @@ namespace AHProject.BL
                 settlementHolidays.ForEach(s =>
                 {
                     mail = new MailMessage();
-                    //למי לשלוח (יש אפשרות להוסיף כמה נמענים) 
+                    //
                     mail.To.Add(s.IdSettlementNavigation.IdContactPerNavigation.Gmail);
                     //כתובת מייל לשלוח ממנה
                     mail.From = new MailAddress("e0533169098@gmail.com");

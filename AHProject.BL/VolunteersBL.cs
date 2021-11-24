@@ -34,6 +34,7 @@ namespace AHProject.BL
         public List<VolunteersDTO> GetVolunteers()
         {
             List<Volunteer> volunteers = _IVolunteersDAL.GetVolunteers();
+            volunteers.Sort();
             return _mapper.Map<List<Volunteer>, List<VolunteersDTO>>(volunteers);
         }
         public VolunteersDTO GetVolunteerById(int id)

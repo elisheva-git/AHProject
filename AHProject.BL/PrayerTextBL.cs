@@ -30,5 +30,18 @@ namespace AHProject.BL
                 throw;
             }
         }
+        public void AddPrayerText(PrayerTextDTO prayer)
+        {
+            try
+            {
+                PrayerText prayerText = _mapper.Map<PrayerTextDTO, PrayerText>(prayer);
+                _IPrayerTextDAL.AddPrayerText(prayerText);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -30,6 +30,19 @@ namespace AHProject.Controllers
                 return BadRequest();
             }
         }
+        [HttpPost]
+        public void AddPrayerText(PrayerTextDTO prayer)
+        {
+            try
+            {
+                _IPrayerTextBL.AddPrayerText(prayer);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
     }
 }
