@@ -4,6 +4,7 @@ using AutoMapper;
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace AHProject.BL
@@ -34,7 +35,8 @@ namespace AHProject.BL
         public List<VolunteersDTO> GetVolunteers()
         {
             List<Volunteer> volunteers = _IVolunteersDAL.GetVolunteers();
-            volunteers.Sort();
+            VolunteersCompare volunteersCompare = new VolunteersCompare();
+            volunteers.Sort(volunteersCompare);
             return _mapper.Map<List<Volunteer>, List<VolunteersDTO>>(volunteers);
         }
         public VolunteersDTO GetVolunteerById(int id)
@@ -78,6 +80,13 @@ namespace AHProject.BL
 
                 throw;
             }
+        }
+    }
+    class VolunteersCompare : IComparer<Volunteer>
+    {
+        public int Compare([AllowNull] Volunteer x, [AllowNull] Volunteer y)
+        {
+            return (x.FirstName + x.LastName).CompareTo(y.FirstName + y.LastName);
         }
     }
 }

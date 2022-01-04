@@ -4,6 +4,7 @@ using AutoMapper;
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace AHProject.BL
@@ -34,7 +35,8 @@ namespace AHProject.BL
         public List<SettlementDTO> GetSettlements()
         {
             List<Settlement> settlements = _ISettlementDAL.GetSettlements();
-            settlements.Sort();
+            SettlementCompare settlementCompare = new SettlementCompare();
+            settlements.Sort(settlementCompare);
             return _mapper.Map<List<Settlement>, List<SettlementDTO>>(settlements);
         }
         public bool DeleteSettlement(int idSettlement)
@@ -69,6 +71,13 @@ namespace AHProject.BL
 
                 throw;
             }
+        }
+    }
+    class SettlementCompare : IComparer<Settlement>
+    {
+        public int Compare([AllowNull] Settlement x, [AllowNull] Settlement y)
+        {
+            return x.NameSettlement.CompareTo(y.NameSettlement);
         }
     }
 }

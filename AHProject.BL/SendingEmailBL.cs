@@ -32,18 +32,17 @@ namespace AHProject.BL
                 holidayVolunteers.ForEach(hv =>
                     {
                         mail = new MailMessage();
-                        //למי לשלוח (יש אפשרות להוסיף כמה נמענים) 
                         mail.To.Add(hv.IdVolunteerNavigation.Gmail);
-                        //כתובת מייל לשלוח ממנה
+                        //the sendder address
                         mail.From = new MailAddress("e0533169098@gmail.com");
-                        // נושא ההודעה
+                        // subject message
                         mail.Subject = "שיבוץ לחג";
-                        //תוכן ההודעה ב- HTML
-                        string body = hv.IdVolunteerNavigation.FirstName+" "+hv.IdVolunteerNavigation.LastName+" שלום וברכה"+"/n"+
-                        "הנך משובץ לישוב "+hv.IdS.IdSettlementNavigation.NameSettlement+" לחג "+hv.IdSchedulingHolidayNavigation.IdHolidayNavigation.DescriptionHoliday+"תודה רבה וחג שמח";
+                        //content of the message
+                        string body = hv.IdVolunteerNavigation.FirstName+" "+hv.IdVolunteerNavigation.LastName
+                        +" שלום וברכה"+"/n"+
+                        "הנך משובץ לישוב "+hv.IdS.IdSettlementNavigation.NameSettlement+" לחג "+
+                        hv.IdSchedulingHolidayNavigation.IdHolidayNavigation.DescriptionHoliday+"תודה רבה וחג שמח";
                         mail.Body = body;
-                        //mail.Body = "שלום וברכה ";
-                        //הגדרת תוכן ההודעה ל - HTML 
                         mail.IsBodyHtml = true;
                         try
                         {
