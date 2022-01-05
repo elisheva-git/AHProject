@@ -123,7 +123,19 @@ namespace AHProject.BL
                 throw;
             }
         }
-        
+        public void deleteVolunteerFromSettlement(HolidayVolunteerDTO holidayVolunteer)
+        {
+            try
+            {
+                HolidayVolunteer volunteer = _mapper.Map<HolidayVolunteerDTO, HolidayVolunteer>(holidayVolunteer);
+                _IHolidayVolunteerDAL.deleteVolunteerFromSettlement(volunteer);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
     }
 }

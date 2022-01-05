@@ -11,5 +11,6 @@ namespace AHProject.BL
         public List<HolidayVolunteerDTO> GetVolunteersBySettlement(int settlementId, int schedulingId);
         public void saveVolunteerToSettlement(HolidayVolunteerDTO holidayVolunteer, int settlement);
         public List<List<HolidayVolunteerDTO>> GetVolunteersToScheduling(int settlementId, int schedulingId);
+        public void deleteVolunteerFromSettlement(HolidayVolunteerDTO holidayVolunteer);
     }
 }

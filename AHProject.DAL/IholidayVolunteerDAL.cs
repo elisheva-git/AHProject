@@ -13,5 +13,6 @@ namespace AHProject.DAL
         public List<HolidayVolunteer> GetBusyVolunteers(int schedulingId, int settlement);
         public List<HolidayVolunteer> GetVolunteersToSettlements(int schedulingId, int settlement);
         public List<HolidayVolunteer> GetHolidayVolunteers();
+        public void deleteVolunteerFromSettlement(HolidayVolunteer holidayVolunteer);
     }
 }

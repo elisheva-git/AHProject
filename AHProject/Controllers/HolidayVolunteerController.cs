@@ -100,6 +100,21 @@ namespace AHProject.Controllers
                 throw;
             }
         }
+        [HttpPost("[action]")]
+        public ActionResult<bool> deleteVolunteerFromSettlement(HolidayVolunteerDTO holidayVolunteer)
+        {
+            try
+            {
+                _IholidayVolunteerBL.deleteVolunteerFromSettlement(holidayVolunteer);
+                return Ok(true);
+            }
+            catch (Exception)
+            {
+
+                throw;
+                return BadRequest(false);
+            }
+        }
 
     }
 }

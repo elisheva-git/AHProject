@@ -91,7 +91,19 @@ namespace AHProject.DAL
                 throw;
             }
         }
-
+        public void deleteVolunteerFromSettlement(HolidayVolunteer holidayVolunteer)
+        {
+            try
+            {
+                HolidayVolunteer holidayVolunteer1 = _context.HolidayVolunteers.First(hv => hv.IdSchedulingHoliday == holidayVolunteer.IdSchedulingHoliday && hv.IdVolunteer == holidayVolunteer.IdVolunteer);
+                holidayVolunteer1.IdSettlement = null;
+                _context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
         public List<HolidayVolunteer> GetBusyVolunteers(int schedulingId, int settlement)
         {
             try
