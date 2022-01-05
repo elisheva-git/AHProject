@@ -32,7 +32,7 @@ namespace AHProject.Controllers
                 return BadRequest();
             }
         }
-        [HttpGet]
+        [HttpGet("[action]")]
         public ActionResult< List<ProfessionalDTO> >GetProfessionals()
         {
             try
@@ -45,6 +45,19 @@ namespace AHProject.Controllers
                 throw;
             }
         }
+        [HttpPost("[action]")]
+        public ActionResult<bool> AddProfessional(ProfessionalDTO professional)
+        {
+            try
+            {
+                _IProfessionalBL.AddProfessional(professional);
+                return Ok(true);
+            }
+            catch (Exception)
+            {
 
+                return BadRequest();
+            }
+        }
     }
 }

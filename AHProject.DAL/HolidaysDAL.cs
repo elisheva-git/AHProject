@@ -67,5 +67,24 @@ namespace AHProject.DAL
         {
             return _context.Holidays.ToList();
         }
+
+        public void AddHoliday(string name,List<Professional> professionals)
+        {
+            try
+            {
+                _context.Holidays.Add(new Holiday() { DescriptionHoliday=name});
+                _context.SaveChanges();
+                Holiday holiday = _context.Holidays.First(h => h.DescriptionHoliday == name);
+                professionals.ForEach(p =>
+                {
+                    holiday.ProfessionalHolidays.Add(new ProfessionalHoliday() { IdHoliday = holiday.IdHoliday, IdProfessional = p.IdProfessional });
+                });
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

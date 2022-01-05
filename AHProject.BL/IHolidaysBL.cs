@@ -10,5 +10,6 @@ namespace AHProject.BL
         public bool DeleteHolidayBL(int id);
         //public List<ProfessionalDTO> GetProfessionalsHolidayBL(int id);
         public List<HolidaysDTO> GetHolidays();
+        public void AddHoliday(HolidaysDTO holiday);
     }
 }

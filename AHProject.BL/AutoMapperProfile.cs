@@ -11,7 +11,8 @@ namespace AHProject.BL
     {
         public AutoMapperProfile()
         {
-          
+            CreateMap<Professional, ProfessionalDTO>();
+            CreateMap<ProfessionalDTO, Professional>();
             CreateMap<AreaDTO,Area>();
             CreateMap<Area,AreaDTO > ();
             CreateMap<PrayerText, PrayerTextDTO>();
@@ -19,6 +20,9 @@ namespace AHProject.BL
 
 
             CreateMap<Holiday, HolidaysDTO>().ForMember(dest => dest.Professionals, src => src.MapFrom(d => d.ProfessionalHolidays)).ForMember(dest => dest.Professionals, src => src.MapFrom(s => s.ProfessionalHolidays.Select(p=>p.IdProfessionalNavigation).ToList()));
+
+            
+            CreateMap<HolidaysDTO, Holiday>().ForMember(dest => dest.ProfessionalHolidays, src => src.MapFrom(s => s.Professionals));
 
             CreateMap<Settlement, SettlementDTO>().ForMember(dest => dest.ContactPer, src => src.MapFrom(d => d.IdContactPerNavigation)).ForMember(dest=>dest.AreaName,src=>src.MapFrom(s=>s.IdAreaNavigation.AreaName));
             //CreateMap<SettlementDTO, Settlement>().ForMember(dest => dest.IdContactPerNavigation, src => src.MapFrom(d => d.ContactPer)).ForPath(dest => dest.IdAreaNavigation.AreaName, src => src.MapFrom(s => s.AreaName));
@@ -72,8 +76,7 @@ namespace AHProject.BL
             CreateMap<OptionalVolunteerToHolidayDTO, OptionalVolunteerToHoliday>().ForPath(dest=>dest.IdExperienceNavigation.Icon,src=>src.MapFrom(i=>i.Icon)).
                 ForMember(dest=>dest.IdVolunteerNavigation,src=>src.MapFrom(v=>v.Volunteer));
 
-            CreateMap <Professional, ProfessionalDTO> ();
-            CreateMap <ProfessionalDTO, Professional> ();
+   
             CreateMap <ProfessionalHoliday, ProfessionalHolidaysDTO> ();
             CreateMap <ProfessionalHolidaysDTO, ProfessionalHoliday> ();
             //CreateMap <SettlementHolidays, SettlementHolidaysDTO> ();

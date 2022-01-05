@@ -54,5 +54,18 @@ namespace AHProject.BL
                 throw;
             }
         }
+        public void AddHoliday(HolidaysDTO holiday)
+        {
+            try
+            {
+                List<Professional> professionals = _mapper.Map<List<ProfessionalDTO>, List<Professional>>(holiday.Professionals);
+                 _IHolidaysDAL.AddHoliday(holiday.DescriptionHoliday,professionals);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -48,5 +48,22 @@ namespace AHProject.DAL
                 throw;
             }
         }
+        public void AddProfessional(Professional professional)
+        {
+            try
+            {
+                Professional pExist = _context.Professionals.FirstOrDefault(p => p.DescriptionProfessional == professional.DescriptionProfessional);
+                if (pExist == null)
+                {
+                    _context.Professionals.Add(professional);
+                    _context.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

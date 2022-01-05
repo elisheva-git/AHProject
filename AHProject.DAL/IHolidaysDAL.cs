@@ -10,5 +10,6 @@ namespace AHProject.DAL
         public bool DeleteHolidayDAL(int id);
         public List<Professional> GetProfessionalsHolidayDAL(int id);
         public List<Holiday> GetHolidays();
+        public void AddHoliday(string name, List<Professional> professionals);
     }
 }

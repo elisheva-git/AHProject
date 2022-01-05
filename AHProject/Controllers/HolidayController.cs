@@ -35,7 +35,19 @@ namespace AHProject.Controllers
         {
             return _IHolidaysBL.DeleteHolidayBL(id);
         }
-
+        [HttpPost("[action]")]
+        public ActionResult<bool> AddHoliday(HolidaysDTO holiday)
+        {
+            try
+            {
+                _IHolidaysBL.AddHoliday(holiday);
+                return Ok(true);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(false);
+            }
+        }
         //[HttpGet("[action]")]
         //public ActionResult<HolidaysDTO> GetProfessionalsHoliday(int id)
         //{
