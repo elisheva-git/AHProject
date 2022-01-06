@@ -33,7 +33,7 @@ namespace AHProject.Controllers
             }
         }
         [HttpGet("[action]")]
-        public ActionResult< List<ProfessionalDTO> >GetProfessionals()
+        public ActionResult<List<ProfessionalDTO>> GetProfessionals()
         {
             try
             {
