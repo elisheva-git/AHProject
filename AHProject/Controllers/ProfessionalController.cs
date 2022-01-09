@@ -50,13 +50,12 @@ namespace AHProject.Controllers
         {
             try
             {
-                _IProfessionalBL.AddProfessional(professional);
-                return Ok(true);
+                return Ok(_IProfessionalBL.AddProfessional(professional));
             }
             catch (Exception)
             {
 
-                return BadRequest();
+                return BadRequest(false);
             }
         }
     }

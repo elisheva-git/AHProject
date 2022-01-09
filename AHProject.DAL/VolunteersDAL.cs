@@ -58,7 +58,6 @@ namespace AHProject.DAL
         }
         public bool ChangeStatus(Volunteer volunteerToChange)
         {
-            //לעשות בדיקה באיזה עוד טבלאות למחוק
             try
             {
                 Volunteer volunteer = _context.Volunteers.FirstOrDefault(v => v.IdVolunteer == volunteerToChange.IdVolunteer);

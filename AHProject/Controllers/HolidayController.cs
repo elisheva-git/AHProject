@@ -48,18 +48,6 @@ namespace AHProject.Controllers
                 return BadRequest(false);
             }
         }
-        //[HttpGet("[action]")]
-        //public ActionResult<HolidaysDTO> GetProfessionalsHoliday(int id)
-        //{
-        //    return Ok(_IHolidaysBL.GetProfessionalsHolidayBL(id));
-        //}
-
-        //[HttpDelete("[action]/{prof}")]
-        //public ActionResult<bool> DeleteProfessionalHoliday(string prof)
-        //{
-        //    return
-        //}
-
 
     }
 }

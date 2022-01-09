@@ -7,6 +7,6 @@ namespace AHProject.DAL
     {
         public List<Professional> GetProfessionalsById(int idHoliday);
         public List<Professional> GetProfessionals();
-        public void AddProfessional(Professional professional);
+        public bool AddProfessional(Professional professional);
     }
 }

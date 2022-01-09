@@ -7,6 +7,6 @@ namespace AHProject.BL
     {
         public List<ProfessionalDTO> GetProfessionalsById(int idHoliday);
         public List<ProfessionalDTO> GetProfessionals();
-        public void AddProfessional(ProfessionalDTO professional);
+        public bool AddProfessional(ProfessionalDTO professional);
     }
 }

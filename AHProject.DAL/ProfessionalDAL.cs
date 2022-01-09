@@ -48,7 +48,7 @@ namespace AHProject.DAL
                 throw;
             }
         }
-        public void AddProfessional(Professional professional)
+        public bool AddProfessional(Professional professional)
         {
             try
             {
@@ -57,10 +57,13 @@ namespace AHProject.DAL
                 {
                     _context.Professionals.Add(professional);
                     _context.SaveChanges();
+                    return true;
                 }
+                return false;
             }
             catch (Exception)
             {
+                return false;
 
                 throw;
             }

@@ -21,13 +21,10 @@ namespace AHProject.DAL
         {
             try
             {
-                if (_context.SchedulingHolidays.FirstOrDefault(s=>s.YearHoliday==schedulingHoliday.YearHoliday&&s.IdHoliday==schedulingHoliday.IdHoliday)==default) 
+                if (_context.SchedulingHolidays.FirstOrDefault(s=>s.YearHoliday==schedulingHoliday.YearHoliday&&s.IdHoliday==schedulingHoliday.IdHoliday&&s.IsValid==true)==default) 
                 {
                     _context.SchedulingHolidays.Add(schedulingHoliday);
                     _context.SaveChanges();
-                    //SchedulingHoliday q = _context.SchedulingHolidays.FirstOrDefault(s => s.YearHoliday == schedulingHoliday.YearHoliday && s.IdHoliday == schedulingHoliday.IdHoliday);
-                    //q.OptionalVolunteerToHolidays.Add();
-                    //_context.Volunteers.ToList().ForEach(v => q.OptionalVolunteerToHolidays.Add());
                     _OptionalVolunteerToHolidayDAL.addVolunteers(schedulingHoliday.IdSchedulingHoliday);
                     _OptionalSettlementToHolidayDAL.addSettlements(schedulingHoliday.IdSchedulingHoliday);
                     return true;
@@ -43,7 +40,7 @@ namespace AHProject.DAL
         {
             try
             {
-                return _context.SchedulingHolidays.Where(s=>s.IsValid==true).ToList();
+                return _context.SchedulingHolidays.Where(s=>s.IsValid==true&&s.IsOpen==true).ToList();
             }
             catch (Exception)
             {

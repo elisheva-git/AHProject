@@ -43,11 +43,11 @@ namespace AHProject.BL
                 throw;
             }
         }
-        public void AddProfessional(ProfessionalDTO professional)
+        public bool AddProfessional(ProfessionalDTO professional)
         {
             try
             {
-                _IprofessionalDAL.AddProfessional(_mapper.Map<ProfessionalDTO, Professional>(professional));
+                return _IprofessionalDAL.AddProfessional(_mapper.Map<ProfessionalDTO, Professional>(professional));
             }
             catch (Exception)
             {

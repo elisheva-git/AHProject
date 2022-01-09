@@ -16,7 +16,7 @@ namespace AHProject.DAL
 
         public List<Settlement> GetSettlements()
         {
-            return _context.Settlements.ToList();
+            return _context.Settlements.Where(s=>s.IsActive==true).ToList();
         }
         public bool DeleteSettlement(int idSettlement)
         {
@@ -54,14 +54,13 @@ namespace AHProject.DAL
         {
             try
             {
-                //איך לבדוק האם הישוב קיים כבר
-                //Settlement settlementExist = null;
-            
-                //if (settlementExist != null)
-                //{
-                //    return false;
-                //}
-              
+                Settlement settlementExist = _context.Settlements.FirstOrDefault(s=>s.NameSettlement==settlement.NameSettlement);
+
+                if (settlementExist != null)
+                {
+                    return false;
+                }
+
                 _context.Settlements.Add(settlement);
                 _context.SaveChanges();
                 return true;
@@ -80,7 +79,6 @@ namespace AHProject.DAL
         {
             try
             {
-                //Settlement settlementToUpdate = _context.Settlements.SingleOrDefault(v => v.IdSettlement == id);
                 _context.Settlements.Update(settlement);
                 _context.SaveChanges();
                 return true;
@@ -95,7 +93,6 @@ namespace AHProject.DAL
             try
             {
                 Settlement settlement1 = _context.Settlements.First(s => s.IdSettlement == settlement);
-                //SettlementHoliday one= settlement1.SettlementHolidays.FirstOrDefault(s => s.IdSchedulingHolidayNavigation.IsOpen == true);
                 OptionalSettlementToHoliday two= settlement1.OptionalSettlementToHolidays.FirstOrDefault(s => s.IdSchedulingHolidayNavigation.IsOpen == true);
                 if(two != default)
                 {
